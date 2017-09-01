@@ -1,0 +1,261 @@
+{
+  "cells": [
+    {
+      "type": "basic.Rect",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "size": {
+        "width": 0,
+        "height": 0
+      },
+      "angle": 0,
+      "id": "paperCell",
+      "runtimeClass": "cronos.widgets.joint.uml.Paper",
+      "async": {
+        "batchSize": 500
+      },
+      "z": 1,
+      "namespace": "app",
+      "dataSource": "jdbc/main",
+      "apiPath": "src/main/webapp/raml/app/api.raml",
+      "chkApi": false,
+      "visionLikePackage": false,
+      "persistenceProvider": "Hibernate",
+      "attrs": {}
+    },
+    {
+      "type": "uml.Class",
+      "name": "Mercadoria",
+      "attributes": [
+        "id:java.lang.Integer",
+        "tipo:java.lang.String",
+        "nome:java.lang.String",
+        "quantidade:java.lang.Integer",
+        "preco:java.lang.Double",
+        "negocio:java.lang.String"
+      ],
+      "methods": [
+        "+ list(): List<Mercadoria>"
+      ],
+      "position": {
+        "x": 105,
+        "y": 44
+      },
+      "size": {
+        "width": 189.703125,
+        "height": 164.34375
+      },
+      "angle": 0,
+      "multitenantContextJsonIgnore": "false",
+      "multitenantContextIgnoreEntities": "",
+      "role": "Auto",
+      "isRest": "true",
+      "multitenantContext": "",
+      "restSecurity": null,
+      "restPath": "",
+      "id": "1ace7d3b-0592-46f4-b785-7f4f086d1809",
+      "fields": [
+        {
+          "name": "id",
+          "type": "java.lang.Integer",
+          "dbName": "id",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Id",
+          "mask": "",
+          "isPrimaryKey": true,
+          "isUniqueKey": false,
+          "isNullable": false,
+          "pkType": "None",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        },
+        {
+          "name": "tipo",
+          "type": "java.lang.String",
+          "dbName": "tipo",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Tipo",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        },
+        {
+          "name": "nome",
+          "type": "java.lang.String",
+          "dbName": "nome",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Nome",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        },
+        {
+          "name": "quantidade",
+          "type": "java.lang.Integer",
+          "dbName": "quantidade",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Quantidade",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        },
+        {
+          "name": "preco",
+          "type": "java.lang.Double",
+          "dbName": "preco",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Preço",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        },
+        {
+          "name": "negocio",
+          "type": "java.lang.String",
+          "dbName": "negocio",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Tipo do Negócio",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        }
+      ],
+      "queries": [
+        {
+          "isRest": "true",
+          "name": "list",
+          "query": "select c from $entity c",
+          "void": false,
+          "type": "select"
+        }
+      ],
+      "tableName": null,
+      "runtimeClass": "cronos.widgets.joint.uml.Class",
+      "z": 2,
+      "attrs": {
+        "rect": {
+          "stroke": "yellow",
+          "stroke-width": 2
+        },
+        ".uml-class-name-rect": {
+          "height": 50,
+          "transform": "translate(0,0)"
+        },
+        ".uml-class-attrs-rect": {
+          "height": 150,
+          "transform": "translate(0,50)"
+        },
+        ".uml-class-methods-rect": {
+          "height": 50,
+          "transform": "translate(0,200)"
+        },
+        ".uml-class-name-text": {
+          "fill": "#000",
+          "font-size": 12,
+          "text": "Mercadoria",
+          "font-weight": "bold"
+        },
+        ".uml-class-attrs-text": {
+          "font-size": 11,
+          "text": "id\ntipo\nnome\nquantidade\npreco\nnegocio\n"
+        },
+        ".uml-class-attrs-value": {
+          "ref-x": 89.578125,
+          "font-size": 11,
+          "text": "java.lang.Integer\njava.lang.String\njava.lang.String\njava.lang.Integer\njava.lang.Double\njava.lang.String\n"
+        },
+        ".uml-class-methods-text": {
+          "fill": "#0066FF",
+          "font-size": 11,
+          "text": "+ list(): List<Mercadoria>"
+        }
+      }
+    }
+  ],
+  "selectedGroup": "",
+  "groups": [
+    {
+      "name": "",
+      "id": "6e54593a-9c1c-40eb-8f65-ae9d7d35cc65",
+      "cells": [
+        "1ace7d3b-0592-46f4-b785-7f4f086d1809"
+      ]
+    }
+  ]
+}

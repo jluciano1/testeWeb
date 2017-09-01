@@ -1,0 +1,130 @@
+<h3>Mercadorias</h3>
+<div data-component="crn-button" id="novo">
+  <button class="btn btn-primary" type="submit" onclick="" ng-click="startInserting()" ng-hide="inserting"><i class="fa fa-user"></i> <span class="">Nova mercadoria</span></button>
+</div>
+<div class="component-holder" id="grid-Mercadorias">
+  <div class="" ng-hide="inserting">
+    <table class="table  table-bordered table-hover table-striped">
+      <thead>
+        <tr class="table-header">
+          <th class="">
+            <div class="">Id</div>
+          </th>
+          <th class="">
+            <div class="">Tipo</div>
+          </th>
+          <th class="">
+            <div class="">Nome</div>
+          </th>
+          <th class="">
+            <div class="">Quantidade</div>
+          </th>
+          <th class="">
+            <div class="">Preço</div>
+          </th>
+          <th class="">
+            <div class="">Tipo do Negócio</div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="table-content" ng-repeat="rowData in mercadorias">
+          <td class="">
+            <div class="">
+              {{rowData.id}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.tipo}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.nome}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.quantidade}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.preco}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.negocio}}
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="form" ng-show="inserting">
+    <form class="">
+      <div class="active-bar" ng-hide="!inserting">
+        <button class="btn btn-success" ng-click="post(id, tipo, nome, quantidade, preco, negocio)"><i class="glyphicon glyphicon-ok"></i></button>
+        <button class="btn btn-danger" ng-click="cancel()"><i class="glyphicon glyphicon-remove"></i></button>
+      </div>
+      <br/>
+      <fieldset ng-disabled="!inserting">
+        <div data-component="crn-textinput" id="crn-textinput-id">
+          <div class="form-group">
+            <label for="textinput-id" class="">Id</label>
+            <input type="number"  ng-model="id" class="form-control" id="textinput-id" placeholder="Id" required="required">
+          </div>
+        </div>
+        <div data-component="crn-textinput" id="crn-textinput-tipo">
+          <div class="form-group">
+            <label for="textinput-tipo" class="">Tipo</label>
+            <input
+              type="text"
+              ng-model="tipo"
+              class="form-control"
+              id="textinput-tipo"
+              placeholder="Tipo"
+              >
+          </div>
+        </div>
+        <div data-component="crn-textinput" id="crn-textinput-nome">
+          <div class="form-group">
+            <label for="textinput-nome" class="">Nome</label>
+            <input
+              type="text"
+              ng-model="nome"
+              class="form-control"
+              id="textinput-nome"
+              placeholder="Nome"
+              >
+          </div>
+        </div>
+        <div data-component="crn-textinput" id="crn-textinput-quantidade">
+          <div class="form-group">
+            <label for="textinput-quantidade" class="">Quantidade</label>
+            <input type="number"  ng-model="quantidade" class="form-control" id="textinput-quantidade" placeholder="Quantidade" >
+          </div>
+        </div>
+        <div data-component="crn-textinput" id="crn-textinput-preco">
+          <div class="form-group">
+            <label for="textinput-preco" class="">Preço</label>
+            <input type="number" step="0.01" ng-model="preco" class="form-control" id="textinput-preco" placeholder="Preço" >
+          </div>
+        </div>
+        <div data-component="component-holder ng-binding ng-scope" id="crn-textinput-negocio">
+          <div class="form-group">
+            <label for="textinput-negocio" class="col-xs-12">Tipo do Negócio</label>
+            <ui-select ng-model="negocio" class="crn-select col-xs-5" id="textinput-negocio" ng-click="configuraNegocio(negocio)" name="negocio" required="required">
+               <ui-select-match>{{$select.selected}}</ui-select-match>
+               <ui-select-choices repeat="rowData in ['Compra','Venda'] | filter : $select.search">
+                 <div data-container="true">{{rowData}}</div>
+               </ui-select-choices>
+            </ui-select>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
