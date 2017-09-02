@@ -5,9 +5,6 @@ var app = (function() {
       'ui-select-infinity',
       'ngResource',
       'ngSanitize',
-      'custom.controllers',
-      'custom.services',
-      'datasourcejs',
       'chart.js',
       'ngMask',
       'ngJustGage',
@@ -40,7 +37,7 @@ var app = (function() {
           url: "/error/404",
           controller: 'MercadoriaController',
           templateUrl: function(urlattr) {
-            return 'views/error/404.view.html';
+            return 'views/error/404.html';
           }
         });
 
