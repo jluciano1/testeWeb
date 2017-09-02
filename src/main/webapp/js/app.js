@@ -3,16 +3,8 @@ var app = (function() {
       'ui.router',
       'ui.select',
       'ui-select-infinity',
-      'ngResource',
-      'ngSanitize',
-      'chart.js',
-      'ngMask',
-      'ngJustGage',
-      'pascalprecht.translate',
-      'tmh.dynamicLocale',
       'ui-notification',
-      'ui.bootstrap',
-      'ngFileUpload'
+      'ui.bootstrap'
     ])
 
     .config(function($stateProvider, $urlRouterProvider, NotificationProvider) {
