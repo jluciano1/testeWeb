@@ -8,13 +8,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 import auth.permission.SecurityPermission;
 
-/**
- * Classe que configura o WebSecurity, possibilitando requerer que o
- * usuário esteja logado para acessar qualquer usuário
- * 
- * @author Techne
- *
- */
 @Configuration
 @EnableWebSecurity
 public class AuthorizationConfigurer extends WebSecurityConfigurerAdapter {
@@ -22,22 +15,13 @@ public class AuthorizationConfigurer extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private SecurityPermission securityPermission;
 
-	/**
-	 * Configurações default para WebSecurity
-	 */
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
-		// post sem csrf
 		http.csrf().disable();
 
-		// load Security Permission
 		securityPermission.loadSecurityPermission(http);
 
-		// x-frame-options disable        
 		http.headers().frameOptions().disable().httpStrictTransportSecurity().disable();
-
 	}
-
-
 }

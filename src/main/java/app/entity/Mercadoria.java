@@ -1,9 +1,12 @@
 package app.entity;
 
-import java.io.*;
-import javax.persistence.*;
-import java.util.*;
-import javax.xml.bind.annotation.*;
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @Table(name = "\"MERCADORIA\"")

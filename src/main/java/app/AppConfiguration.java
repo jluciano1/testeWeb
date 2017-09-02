@@ -1,21 +1,14 @@
 package app;
 
-import org.springframework.orm.jpa.*;
-import org.springframework.context.annotation.*;
-import org.springframework.data.jpa.repository.config.*;
-import org.springframework.transaction.*;
-import org.springframework.transaction.annotation.*;
-import org.springframework.core.io.*;
-import org.springframework.data.repository.init.*;
-import java.net.URL;
-import java.io.File;
-import java.util.Scanner;
-import java.util.regex.Pattern;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.orm.jpa.JpaTransactionManager;
+import org.springframework.orm.jpa.LocalEntityManagerFactoryBean;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-/**
- * Classe que configura os beans para persistencia
- * @generated
- */
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(
