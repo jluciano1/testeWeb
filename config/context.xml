@@ -1,13 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<Context>
-      <Resource accessToUnderlyingConnectionAllowed="true" 
-        type="javax.sql.DataSource"
-        driverClassName="org.h2.Driver"
-        name="jdbc/main" 
-        username="root"
-        password="roor" 
-        removeAbandoned="false" 
-        removeAbandonedTimeout="60" 
-        logAbandoned="true" 
-        url="jdbc:h2:file:~/Testeweb;AUTO_SERVER=TRUE;DATABASE_TO_UPPER=FALSE;ALIAS_COLUMN_NAME=TRUE" />
+<?xml version="1.0" encoding="UTF-8"?><Context>
+    <Resource accessToUnderlyingConnectionAllowed="true" driverClassName="org.h2.Driver" logAbandoned="true" name="jdbc/main" password="root" profile="DEV" removeAbandoned="false" removeAbandonedTimeout="60" type="javax.sql.DataSource" url="jdbc:h2:file:~/9884d6ea54ee4e9f9fc01e895ecd4e0a;DATABASE_TO_UPPER=false;ALIAS_COLUMN_NAME=true;AUTO_SERVER=TRUE" username="root"/>
+    <Resource accessToUnderlyingConnectionAllowed="true" driverClassName="oracle.jdbc.OracleDriver" logAbandoned="true" maxIdle="10" maxTotal="300" maxWaitMillis="10000" minEvictableIdleTimeMillis="60000" name="jdbc/bancomay" password="100891" profile="DEV" removeAbandonedOnBorrow="true" removeAbandonedOnMaintenance="true" removeAbandonedTimeout="60" testOnBorrow="false" testWhileIdle="true" timeBetweenEvictionRunsMillis="300000" type="javax.sql.DataSource" url="jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL" username="RM79112" validationQuery="select 1 from dual"/>
+    <Profile value="DEV"/>
 </Context>

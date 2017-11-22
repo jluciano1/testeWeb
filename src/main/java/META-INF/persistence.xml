@@ -1,15 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-    <persistence-unit name="app" transaction-type="RESOURCE_LOCAL">
-        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <jta-data-source>java:comp/env/jdbc/main</jta-data-source>
-        <class>app.entity.Mercadoria</class>
+    <persistence-unit name="itv" transaction-type="RESOURCE_LOCAL">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <non-jta-data-source>java:comp/env/jdbc/bancomay</non-jta-data-source>
+        <class>itv.entity.TrabalhoFacebook</class>
+        <class>itv.entity.ExperienciaLinkedIn</class>
+        <class>itv.entity.DadoPessoalLinkedIn</class>
+        <class>itv.entity.Pessoa</class>
+        <class>itv.entity.EnderecoPeloSerasa</class>
+        <class>itv.entity.ClassifRiscoCreditoEmpresa</class>
+        <class>itv.entity.DadoPessoalSerasa</class>
+        <class>itv.entity.DadoPessoalFacebook</class>
+        <class>itv.entity.Endereco</class>
+        <class>itv.entity.FormacaoAcademicaLinkedIn</class>
+        <class>itv.entity.MembroFamiliaFacebook</class>
+        <class>itv.entity.AcontecimentoFacebook</class>
+        <class>itv.entity.ParticipacaoSocietaria</class>
+        <class>itv.entity.InteresseLinkedIn</class>
+        <class>itv.entity.DadoVizinho</class>
+        <class>itv.entity.AnotacaoNegativa</class>
+        <class>itv.entity.EducacaoFacebook</class>
+        <class>itv.entity.TelefonePeloSerasa</class>
         <properties>
-            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:h2:file:~/Testeweb;AUTO_SERVER=TRUE;DATABASE_TO_UPPER=FALSE;ALIAS_COLUMN_NAME=TRUE"/>
-            <property name="javax.persistence.jdbc.user" value="root"/>
-            <property name="javax.persistence.jdbc.password" value="roor"/>
-            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <property name="eclipselink.ddl-generation" value="create-or-extend-tables"/>
         </properties>
     </persistence-unit>
 </persistence>
