@@ -1,0 +1,275 @@
+<h3>DadoPessoalFacebook</h3>
+<div data-component="crn-datasource" id="crn-datasource-763276" class="component-holder">
+  <datasource filter="" name="DadoPessoalFacebook" entity="api/rest/itv/DadoPessoalFacebook" keys="id" rows-per-page="100" delete-message="Deseja remover?" class=""></datasource>
+</div>
+<div data-component="crn-button" id="crn-button-564202">
+  <button class="btn btn-primary" type="submit" onclick="" ng-click="DadoPessoalFacebook.startInserting()" ng-hide="DadoPessoalFacebook.inserting || DadoPessoalFacebook.editing"><i class="fa fa-user"></i> <span class="">{{"template.crud.new" | translate}}</span></button>
+</div>
+<div class="component-holder" data-component="crn-grid" id="crn-grid-DadoPessoalFacebook">
+  <div crn-datasource="DadoPessoalFacebook" class="" ng-hide="DadoPessoalFacebook.editing || DadoPessoalFacebook.inserting">
+    <table class="table  table-bordered table-hover table-striped">
+      <thead>
+        <tr class="table-header">
+          <th class="">
+            <div class="">Id</div>
+          </th>
+          <th class="">
+            <div class="">Url Id</div>
+          </th>
+          <th class="">
+            <div class="">Nome</div>
+          </th>
+          <th class="">
+            <div class="">Dt Nascimento</div>
+          </th>
+          <th class="">
+            <div class="">Cidade Atual</div>
+          </th>
+          <th class="">
+            <div class="">Cidade Natal</div>
+          </th>
+          <th class="">
+            <div class="">Relacionamento</div>
+          </th>
+          <th class="">
+            <div class="">Casado Com</div>
+          </th>
+          <th class="">
+            <div class="">Genero</div>
+          </th>
+          <th class="">
+            <div class="">Idioma</div>
+          </th>
+          <th class="">
+            <div class="">Quant Amigo</div>
+          </th>
+          <th class="">
+            <div class="">{{"template.crud.actions" | translate}}</div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="table-content" ng-repeat="rowData in datasource.data">
+          <td class="">
+            <div class="">
+              {{rowData.id}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.urlId}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.nome}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.dtNascimento | date:'dd/MM/yyyy'}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.cidadeAtual}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.cidadeNatal}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.relacionamento}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.casadoCom}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.genero}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.idioma}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.quantAmigo}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              <button class="btn btn-default btn-sm" type="submit" ng-click="datasource.startEditing(rowData)"><i class="fa fa-edit"></i></button>
+              <button class="btn btn-default btn-sm" type="submit" ng-click="datasource.remove(rowData)"><i class="fa fa-times"></i></button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="table-footer-controls">
+      <button class="btn btn-default btn-block btn-clicked" ng-show="datasource.hasNextPage()" ng-click="datasource.nextPage()">{{"template.crud.load_more" | translate}}...</button>
+    </div>
+  </div>
+</div>
+<div data-component="crn-form" id="crn-form-form-DadoPessoalFacebook">
+  <div class="form" ng-show="DadoPessoalFacebook.editing || DadoPessoalFacebook.inserting">
+    <form crn-datasource="DadoPessoalFacebook" class="">
+      <div class="tool-bar" ng-hide="datasource.editing || datasource.inserting">
+        <button class="btn btn-primary" ng-click="datasource.startInserting()"><i class="glyphicon glyphicon-plus-sign"></i></button>
+        <button class="btn btn-success" ng-click="datasource.startEditing()"><i class="glyphicon glyphicon-edit"></i></button>
+        <button class="btn btn-primary" ng-disabled="!datasource.hasPrevious()" ng-click="datasource.previous()"><i class="glyphicon glyphicon-chevron-left"></i></button>
+        <button class="btn btn-primary" ng-disabled="!datasource.hasNext()" ng-click="datasource.next()"><i class="glyphicon glyphicon-chevron-right"></i></button>
+        <button class="btn btn-primary" ng-click="datasource.remove()"><i class="glyphicon glyphicon-trash"></i></button>
+      </div>
+      <div class="active-bar" ng-hide="!datasource.editing &amp;&amp; !datasource.inserting">
+        <button class="btn btn-success" ng-click="datasource.post()"><i class="glyphicon glyphicon-ok"></i></button>
+        <button class="btn btn-danger" ng-click="datasource.cancel()"><i class="glyphicon glyphicon-remove"></i></button>
+      </div>
+      <br/>
+      <fieldset ng-disabled="!datasource.editing &amp;&amp; !datasource.inserting">
+        
+        <div data-component="crn-textinput" id="crn-textinput-urlId">
+          <div class="form-group">
+            <label for="textinput-urlId" class="">Url Id</label>
+            <input
+              type="text"
+              ng-model="DadoPessoalFacebook.active.urlId"
+              class="form-control"
+              id="textinput-urlId"
+              placeholder="Url Id"
+              >
+          </div>
+        </div>
+        
+        <div data-component="crn-textinput" id="crn-textinput-nome">
+          <div class="form-group">
+            <label for="textinput-nome" class="">Nome</label>
+            <input
+              type="text"
+              ng-model="DadoPessoalFacebook.active.nome"
+              class="form-control"
+              id="textinput-nome"
+              placeholder="Nome"
+              >
+          </div>
+        </div>
+        
+        <div data-component="crn-textinput" id="crn-textinput-dtNascimento">
+          <div class="form-group">
+            <label for="textinput-dtNascimento" class="">Dt Nascimento</label>
+            <div style="position:relative">
+              <input type="text" as-date
+              format="DD/MM/YYYY"
+              ng-model="DadoPessoalFacebook.active.dtNascimento" class="form-control" id="textinput-dtNascimento" placeholder="Dt Nascimento" >
+            </div>
+          </div>
+        </div>
+        
+        <div data-component="crn-textinput" id="crn-textinput-cidadeAtual">
+          <div class="form-group">
+            <label for="textinput-cidadeAtual" class="">Cidade Atual</label>
+            <input
+              type="text"
+              ng-model="DadoPessoalFacebook.active.cidadeAtual"
+              class="form-control"
+              id="textinput-cidadeAtual"
+              placeholder="Cidade Atual"
+              >
+          </div>
+        </div>
+        
+        <div data-component="crn-textinput" id="crn-textinput-cidadeNatal">
+          <div class="form-group">
+            <label for="textinput-cidadeNatal" class="">Cidade Natal</label>
+            <input
+              type="text"
+              ng-model="DadoPessoalFacebook.active.cidadeNatal"
+              class="form-control"
+              id="textinput-cidadeNatal"
+              placeholder="Cidade Natal"
+              >
+          </div>
+        </div>
+        
+        <div data-component="crn-textinput" id="crn-textinput-relacionamento">
+          <div class="form-group">
+            <label for="textinput-relacionamento" class="">Relacionamento</label>
+            <input
+              type="text"
+              ng-model="DadoPessoalFacebook.active.relacionamento"
+              class="form-control"
+              id="textinput-relacionamento"
+              placeholder="Relacionamento"
+              >
+          </div>
+        </div>
+        
+        <div data-component="crn-textinput" id="crn-textinput-casadoCom">
+          <div class="form-group">
+            <label for="textinput-casadoCom" class="">Casado Com</label>
+            <input
+              type="text"
+              ng-model="DadoPessoalFacebook.active.casadoCom"
+              class="form-control"
+              id="textinput-casadoCom"
+              placeholder="Casado Com"
+              >
+          </div>
+        </div>
+        
+        <div data-component="crn-textinput" id="crn-textinput-genero">
+          <div class="form-group">
+            <label for="textinput-genero" class="">Genero</label>
+            <input
+              type="text"
+              ng-model="DadoPessoalFacebook.active.genero"
+              class="form-control"
+              id="textinput-genero"
+              placeholder="Genero"
+              >
+          </div>
+        </div>
+        
+        <div data-component="crn-textinput" id="crn-textinput-idioma">
+          <div class="form-group">
+            <label for="textinput-idioma" class="">Idioma</label>
+            <input
+              type="text"
+              ng-model="DadoPessoalFacebook.active.idioma"
+              class="form-control"
+              id="textinput-idioma"
+              placeholder="Idioma"
+              >
+          </div>
+        </div>
+        
+        <div data-component="crn-textinput" id="crn-textinput-quantAmigo">
+          <div class="form-group">
+            <label for="textinput-quantAmigo" class="">Quant Amigo</label>
+            <input type="number"  ng-model="DadoPessoalFacebook.active.quantAmigo" class="form-control" id="textinput-quantAmigo" placeholder="Quant Amigo" >
+          </div>
+        </div>
+        <!-- NtoN  -->
+        <!-- NtoN  end-->
+      </fieldset>
+    </form>
+    <form>
+        <fieldset>
+        <!-- OneToN -->
+        <!-- OneToOne  end -->
+        </fieldset>
+    </form>
+  </div>
+</div>
+
+
+<!-- OneToOne modal -->
+<!-- OneToOne modal end-->

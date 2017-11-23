@@ -1,0 +1,208 @@
+<h3>AnotacaoNegativa</h3>
+<div data-component="crn-datasource" id="crn-datasource-763276" class="component-holder">
+  <datasource filter="" name="AnotacaoNegativa" entity="api/rest/itv/AnotacaoNegativa" keys="id" rows-per-page="100" delete-message="Deseja remover?" class=""></datasource>
+</div>
+<div data-component="crn-button" id="crn-button-564202">
+  <button class="btn btn-primary" type="submit" onclick="" ng-click="AnotacaoNegativa.startInserting()" ng-hide="AnotacaoNegativa.inserting || AnotacaoNegativa.editing"><i class="fa fa-user"></i> <span class="">{{"template.crud.new" | translate}}</span></button>
+</div>
+<div class="component-holder" data-component="crn-grid" id="crn-grid-AnotacaoNegativa">
+  <div crn-datasource="AnotacaoNegativa" class="" ng-hide="AnotacaoNegativa.editing || AnotacaoNegativa.inserting">
+    <table class="table  table-bordered table-hover table-striped">
+      <thead>
+        <tr class="table-header">
+          <th class="">
+            <div class="">Pendencia Comercial</div>
+          </th>
+          <th class="">
+            <div class="">Pendencia Bancaria</div>
+          </th>
+          <th class="">
+            <div class="">Cheque Sem Fundo</div>
+          </th>
+          <th class="">
+            <div class="">Protesto</div>
+          </th>
+          <th class="">
+            <div class="">Acao Judicial</div>
+          </th>
+          <th class="">
+            <div class="">Participacao Falencia</div>
+          </th>
+          <th class="">
+            <div class="">Divida Vencida</div>
+          </th>
+          <th class="">
+            <div class="">Falencia</div>
+          </th>
+          <th class="">
+            <div class="">Pendencia Interna</div>
+          </th>
+          <th class="">
+            <div class="">Id</div>
+          </th>
+          <th class="">
+            <div class="">{{"template.crud.actions" | translate}}</div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="table-content" ng-repeat="rowData in datasource.data">
+          <td class="">
+            <div class="">
+              {{rowData.pendenciaComercial}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.pendenciaBancaria}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.chequeSemFundo}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.protesto}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.acaoJudicial}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.participacaoFalencia}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.dividaVencida}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.falencia}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.pendenciaInterna}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.id}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              <button class="btn btn-default btn-sm" type="submit" ng-click="datasource.startEditing(rowData)"><i class="fa fa-edit"></i></button>
+              <button class="btn btn-default btn-sm" type="submit" ng-click="datasource.remove(rowData)"><i class="fa fa-times"></i></button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="table-footer-controls">
+      <button class="btn btn-default btn-block btn-clicked" ng-show="datasource.hasNextPage()" ng-click="datasource.nextPage()">{{"template.crud.load_more" | translate}}...</button>
+    </div>
+  </div>
+</div>
+<div data-component="crn-form" id="crn-form-form-AnotacaoNegativa">
+  <div class="form" ng-show="AnotacaoNegativa.editing || AnotacaoNegativa.inserting">
+    <form crn-datasource="AnotacaoNegativa" class="">
+      <div class="tool-bar" ng-hide="datasource.editing || datasource.inserting">
+        <button class="btn btn-primary" ng-click="datasource.startInserting()"><i class="glyphicon glyphicon-plus-sign"></i></button>
+        <button class="btn btn-success" ng-click="datasource.startEditing()"><i class="glyphicon glyphicon-edit"></i></button>
+        <button class="btn btn-primary" ng-disabled="!datasource.hasPrevious()" ng-click="datasource.previous()"><i class="glyphicon glyphicon-chevron-left"></i></button>
+        <button class="btn btn-primary" ng-disabled="!datasource.hasNext()" ng-click="datasource.next()"><i class="glyphicon glyphicon-chevron-right"></i></button>
+        <button class="btn btn-primary" ng-click="datasource.remove()"><i class="glyphicon glyphicon-trash"></i></button>
+      </div>
+      <div class="active-bar" ng-hide="!datasource.editing &amp;&amp; !datasource.inserting">
+        <button class="btn btn-success" ng-click="datasource.post()"><i class="glyphicon glyphicon-ok"></i></button>
+        <button class="btn btn-danger" ng-click="datasource.cancel()"><i class="glyphicon glyphicon-remove"></i></button>
+      </div>
+      <br/>
+      <fieldset ng-disabled="!datasource.editing &amp;&amp; !datasource.inserting">
+        
+        <div data-component="crn-textinput" id="crn-textinput-pendenciaComercial">
+          <div class="form-group">
+            <label for="textinput-pendenciaComercial" class="">Pendencia Comercial</label>
+            <input type="number"  ng-model="AnotacaoNegativa.active.pendenciaComercial" class="form-control" id="textinput-pendenciaComercial" placeholder="Pendencia Comercial" >
+          </div>
+        </div>
+        
+        <div data-component="crn-textinput" id="crn-textinput-pendenciaBancaria">
+          <div class="form-group">
+            <label for="textinput-pendenciaBancaria" class="">Pendencia Bancaria</label>
+            <input type="number"  ng-model="AnotacaoNegativa.active.pendenciaBancaria" class="form-control" id="textinput-pendenciaBancaria" placeholder="Pendencia Bancaria" >
+          </div>
+        </div>
+        
+        <div data-component="crn-textinput" id="crn-textinput-chequeSemFundo">
+          <div class="form-group">
+            <label for="textinput-chequeSemFundo" class="">Cheque Sem Fundo</label>
+            <input type="number"  ng-model="AnotacaoNegativa.active.chequeSemFundo" class="form-control" id="textinput-chequeSemFundo" placeholder="Cheque Sem Fundo" >
+          </div>
+        </div>
+        
+        <div data-component="crn-textinput" id="crn-textinput-protesto">
+          <div class="form-group">
+            <label for="textinput-protesto" class="">Protesto</label>
+            <input type="number"  ng-model="AnotacaoNegativa.active.protesto" class="form-control" id="textinput-protesto" placeholder="Protesto" >
+          </div>
+        </div>
+        
+        <div data-component="crn-textinput" id="crn-textinput-acaoJudicial">
+          <div class="form-group">
+            <label for="textinput-acaoJudicial" class="">Acao Judicial</label>
+            <input type="number"  ng-model="AnotacaoNegativa.active.acaoJudicial" class="form-control" id="textinput-acaoJudicial" placeholder="Acao Judicial" >
+          </div>
+        </div>
+        
+        <div data-component="crn-textinput" id="crn-textinput-participacaoFalencia">
+          <div class="form-group">
+            <label for="textinput-participacaoFalencia" class="">Participacao Falencia</label>
+            <input type="number"  ng-model="AnotacaoNegativa.active.participacaoFalencia" class="form-control" id="textinput-participacaoFalencia" placeholder="Participacao Falencia" >
+          </div>
+        </div>
+        
+        <div data-component="crn-textinput" id="crn-textinput-dividaVencida">
+          <div class="form-group">
+            <label for="textinput-dividaVencida" class="">Divida Vencida</label>
+            <input type="number"  ng-model="AnotacaoNegativa.active.dividaVencida" class="form-control" id="textinput-dividaVencida" placeholder="Divida Vencida" >
+          </div>
+        </div>
+        
+        <div data-component="crn-textinput" id="crn-textinput-falencia">
+          <div class="form-group">
+            <label for="textinput-falencia" class="">Falencia</label>
+            <input type="number"  ng-model="AnotacaoNegativa.active.falencia" class="form-control" id="textinput-falencia" placeholder="Falencia" >
+          </div>
+        </div>
+        
+        <div data-component="crn-textinput" id="crn-textinput-pendenciaInterna">
+          <div class="form-group">
+            <label for="textinput-pendenciaInterna" class="">Pendencia Interna</label>
+            <input type="number"  ng-model="AnotacaoNegativa.active.pendenciaInterna" class="form-control" id="textinput-pendenciaInterna" placeholder="Pendencia Interna" >
+          </div>
+        </div>
+        <!-- NtoN  -->
+        <!-- NtoN  end-->
+      </fieldset>
+    </form>
+    <form>
+        <fieldset>
+        <!-- OneToN -->
+        <!-- OneToOne  end -->
+        </fieldset>
+    </form>
+  </div>
+</div>
+
+
+<!-- OneToOne modal -->
+<!-- OneToOne modal end-->

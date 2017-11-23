@@ -1,0 +1,222 @@
+<h3>ParticipacaoSocietaria</h3>
+<div data-component="crn-datasource" id="crn-datasource-763276" class="component-holder">
+  <datasource filter="" name="ParticipacaoSocietaria" entity="api/rest/itv/ParticipacaoSocietaria" keys="id" rows-per-page="100" delete-message="Deseja remover?" class=""></datasource>
+</div>
+<div data-component="crn-button" id="crn-button-564202">
+  <button class="btn btn-primary" type="submit" onclick="" ng-click="ParticipacaoSocietaria.startInserting()" ng-hide="ParticipacaoSocietaria.inserting || ParticipacaoSocietaria.editing"><i class="fa fa-user"></i> <span class="">{{"template.crud.new" | translate}}</span></button>
+</div>
+<div class="component-holder" data-component="crn-grid" id="crn-grid-ParticipacaoSocietaria">
+  <div crn-datasource="ParticipacaoSocietaria" class="" ng-hide="ParticipacaoSocietaria.editing || ParticipacaoSocietaria.inserting">
+    <table class="table  table-bordered table-hover table-striped">
+      <thead>
+        <tr class="table-header">
+          <th class="">
+            <div class="">Nome Empresa</div>
+          </th>
+          <th class="">
+            <div class="">Cnpj</div>
+          </th>
+          <th class="">
+            <div class="">Participacao Empresa</div>
+          </th>
+          <th class="">
+            <div class="">Dt Inicio</div>
+          </th>
+          <th class="">
+            <div class="">Dt Atualizacao</div>
+          </th>
+          <th class="">
+            <div class="">Dado Pessoal Serasa</div>
+          </th>
+          <th class="">
+            <div class="">Id</div>
+          </th>
+          <th class="">
+            <div class="">ClassifRiscoCreditoEmpresa</div>
+          </th>
+          <th class="">
+            <div class="">{{"template.crud.actions" | translate}}</div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="table-content" ng-repeat="rowData in datasource.data">
+          <td class="">
+            <div class="">
+              {{rowData.nomeEmpresa}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.cnpj}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.participacaoEmpresa}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.dtInicio | date:'dd/MM/yyyy'}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.dtAtualizacao | date:'dd/MM/yyyy'}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.dadoPessoalSerasa.nome}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.id}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.classifRiscoCreditoEmpresa.cnpj}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              <button class="btn btn-default btn-sm" type="submit" ng-click="datasource.startEditing(rowData)"><i class="fa fa-edit"></i></button>
+              <button class="btn btn-default btn-sm" type="submit" ng-click="datasource.remove(rowData)"><i class="fa fa-times"></i></button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="table-footer-controls">
+      <button class="btn btn-default btn-block btn-clicked" ng-show="datasource.hasNextPage()" ng-click="datasource.nextPage()">{{"template.crud.load_more" | translate}}...</button>
+    </div>
+  </div>
+</div>
+<div data-component="crn-form" id="crn-form-form-ParticipacaoSocietaria">
+  <div class="form" ng-show="ParticipacaoSocietaria.editing || ParticipacaoSocietaria.inserting">
+    <form crn-datasource="ParticipacaoSocietaria" class="">
+      <div class="tool-bar" ng-hide="datasource.editing || datasource.inserting">
+        <button class="btn btn-primary" ng-click="datasource.startInserting()"><i class="glyphicon glyphicon-plus-sign"></i></button>
+        <button class="btn btn-success" ng-click="datasource.startEditing()"><i class="glyphicon glyphicon-edit"></i></button>
+        <button class="btn btn-primary" ng-disabled="!datasource.hasPrevious()" ng-click="datasource.previous()"><i class="glyphicon glyphicon-chevron-left"></i></button>
+        <button class="btn btn-primary" ng-disabled="!datasource.hasNext()" ng-click="datasource.next()"><i class="glyphicon glyphicon-chevron-right"></i></button>
+        <button class="btn btn-primary" ng-click="datasource.remove()"><i class="glyphicon glyphicon-trash"></i></button>
+      </div>
+      <div class="active-bar" ng-hide="!datasource.editing &amp;&amp; !datasource.inserting">
+        <button class="btn btn-success" ng-click="datasource.post()"><i class="glyphicon glyphicon-ok"></i></button>
+        <button class="btn btn-danger" ng-click="datasource.cancel()"><i class="glyphicon glyphicon-remove"></i></button>
+      </div>
+      <br/>
+      <fieldset ng-disabled="!datasource.editing &amp;&amp; !datasource.inserting">
+        
+        <div data-component="crn-textinput" id="crn-textinput-nomeEmpresa">
+          <div class="form-group">
+            <label for="textinput-nomeEmpresa" class="">Nome Empresa</label>
+            <input
+              type="text"
+              ng-model="ParticipacaoSocietaria.active.nomeEmpresa"
+              class="form-control"
+              id="textinput-nomeEmpresa"
+              placeholder="Nome Empresa"
+              >
+          </div>
+        </div>
+        
+        <div data-component="crn-textinput" id="crn-textinput-cnpj">
+          <div class="form-group">
+            <label for="textinput-cnpj" class="">Cnpj</label>
+            <input
+              type="text"
+              ng-model="ParticipacaoSocietaria.active.cnpj"
+              class="form-control"
+              id="textinput-cnpj"
+              placeholder="Cnpj"
+              >
+          </div>
+        </div>
+        
+        <div data-component="crn-textinput" id="crn-textinput-participacaoEmpresa">
+          <div class="form-group">
+            <label for="textinput-participacaoEmpresa" class="">Participacao Empresa</label>
+            <input type="number" step="0.01" ng-model="ParticipacaoSocietaria.active.participacaoEmpresa" class="form-control" id="textinput-participacaoEmpresa" placeholder="Participacao Empresa" >
+          </div>
+        </div>
+        
+        <div data-component="crn-textinput" id="crn-textinput-dtInicio">
+          <div class="form-group">
+            <label for="textinput-dtInicio" class="">Dt Inicio</label>
+            <div style="position:relative">
+              <input type="text" as-date
+              format="DD/MM/YYYY"
+              ng-model="ParticipacaoSocietaria.active.dtInicio" class="form-control" id="textinput-dtInicio" placeholder="Dt Inicio" >
+            </div>
+          </div>
+        </div>
+        
+        <div data-component="crn-textinput" id="crn-textinput-dtAtualizacao">
+          <div class="form-group">
+            <label for="textinput-dtAtualizacao" class="">Dt Atualizacao</label>
+            <div style="position:relative">
+              <input type="text" as-date
+              format="DD/MM/YYYY"
+              ng-model="ParticipacaoSocietaria.active.dtAtualizacao" class="form-control" id="textinput-dtAtualizacao" placeholder="Dt Atualizacao" >
+            </div>
+          </div>
+        </div>
+        <div data-component="crn-datasource" class="component-holder">
+          <datasource name="Dadopessoalserasa" entity="api/rest/itv/DadoPessoalSerasa" keys="id" class="" dependent-by="{{ParticipacaoSocietaria}}"></datasource>
+        </div>
+        
+        <div data-component="crn-combobox-dynamic" id="crn-combobox-dynamic-dadoPessoalSerasa">
+          <div class="form-group">
+            <label for="combobox-dynamic-dadoPessoalSerasa" class="">Dado Pessoal Serasa</label>
+            <ui-select ng-model="ParticipacaoSocietaria.active.dadoPessoalSerasa" crn-datasource="Dadopessoalserasa" class="crn-select" id="combobox-dynamic-dadoPessoalSerasa"  theme="bootstrap">
+              <ui-select-match class="" placeholder="Select...">
+                {{$select.selected.nome}}
+              </ui-select-match>
+              <ui-select-choices  repeat="rowData in datasource.data | filter : $select.search" class="" refresh="" refresh-deplay="">
+                <div class="" data-container="true">
+                  {{rowData.nome}}
+                </div>
+              </ui-select-choices>
+            </ui-select>
+          </div>
+        </div>
+        <div data-component="crn-datasource" class="component-holder">
+          <datasource name="Classifriscocreditoempresa" entity="api/rest/itv/ClassifRiscoCreditoEmpresa" keys="id" class="" dependent-by="{{ParticipacaoSocietaria}}"></datasource>
+        </div>
+        
+        <div data-component="crn-combobox-dynamic" id="crn-combobox-dynamic-classifRiscoCreditoEmpresa">
+          <div class="form-group">
+            <label for="combobox-dynamic-classifRiscoCreditoEmpresa" class="">ClassifRiscoCreditoEmpresa</label>
+            <ui-select ng-model="ParticipacaoSocietaria.active.classifRiscoCreditoEmpresa" crn-datasource="Classifriscocreditoempresa" class="crn-select" id="combobox-dynamic-classifRiscoCreditoEmpresa"  theme="bootstrap">
+              <ui-select-match class="" placeholder="Select...">
+                {{$select.selected.cnpj}}
+              </ui-select-match>
+              <ui-select-choices  repeat="rowData in datasource.data | filter : $select.search" class="" refresh="" refresh-deplay="">
+                <div class="" data-container="true">
+                  {{rowData.cnpj}}
+                </div>
+              </ui-select-choices>
+            </ui-select>
+          </div>
+        </div>
+        <!-- NtoN  -->
+        <!-- NtoN  end-->
+      </fieldset>
+    </form>
+    <form>
+        <fieldset>
+        <!-- OneToN -->
+        <!-- OneToOne  end -->
+        </fieldset>
+    </form>
+  </div>
+</div>
+
+
+<!-- OneToOne modal -->
+<!-- OneToOne modal end-->

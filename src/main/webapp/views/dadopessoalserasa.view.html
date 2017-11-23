@@ -1,0 +1,329 @@
+<h3>DadoPessoalSerasa</h3>
+<div data-component="crn-datasource" id="crn-datasource-763276" class="component-holder">
+  <datasource filter="" name="DadoPessoalSerasa" entity="api/rest/itv/DadoPessoalSerasa" keys="id" rows-per-page="100" delete-message="Deseja remover?" class=""></datasource>
+</div>
+<div data-component="crn-button" id="crn-button-564202">
+  <button class="btn btn-primary" type="submit" onclick="" ng-click="DadoPessoalSerasa.startInserting()" ng-hide="DadoPessoalSerasa.inserting || DadoPessoalSerasa.editing"><i class="fa fa-user"></i> <span class="">{{"template.crud.new" | translate}}</span></button>
+</div>
+<div class="component-holder" data-component="crn-grid" id="crn-grid-DadoPessoalSerasa">
+  <div crn-datasource="DadoPessoalSerasa" class="" ng-hide="DadoPessoalSerasa.editing || DadoPessoalSerasa.inserting">
+    <table class="table  table-bordered table-hover table-striped">
+      <thead>
+        <tr class="table-header">
+          <th class="">
+            <div class="">Nome</div>
+          </th>
+          <th class="">
+            <div class="">Cpf</div>
+          </th>
+          <th class="">
+            <div class="">Dt Nascimento</div>
+          </th>
+          <th class="">
+            <div class="">Nome Mae</div>
+          </th>
+          <th class="">
+            <div class="">Status Cpf</div>
+          </th>
+          <th class="">
+            <div class="">Serasa Score</div>
+          </th>
+          <th class="">
+            <div class="">Estado Civil</div>
+          </th>
+          <th class="">
+            <div class="">Sexo</div>
+          </th>
+          <th class="">
+            <div class="">Signo</div>
+          </th>
+          <th class="">
+            <div class="">Id</div>
+          </th>
+          <th class="">
+            <div class="">Rating Pessoal</div>
+          </th>
+          <th class="">
+            <div class="">Rating Negocio</div>
+          </th>
+          <th class="">
+            <div class="">AnotacaoNegativa</div>
+          </th>
+          <th class="">
+            <div class="">{{"template.crud.actions" | translate}}</div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="table-content" ng-repeat="rowData in datasource.data">
+          <td class="">
+            <div class="">
+              {{rowData.nome}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.cpf}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.dtNascimento | date:'dd/MM/yyyy'}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.nomeMae}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.statusCpf}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.serasaScore}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.estadoCivil}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.sexo}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.signo}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.id}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.ratingPessoal}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.ratingNegocio}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              {{rowData.anotacaoNegativa.id}}
+            </div>
+          </td>
+          <td class="">
+            <div class="">
+              <button class="btn btn-default btn-sm" type="submit" ng-click="datasource.startEditing(rowData)"><i class="fa fa-edit"></i></button>
+              <button class="btn btn-default btn-sm" type="submit" ng-click="datasource.remove(rowData)"><i class="fa fa-times"></i></button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="table-footer-controls">
+      <button class="btn btn-default btn-block btn-clicked" ng-show="datasource.hasNextPage()" ng-click="datasource.nextPage()">{{"template.crud.load_more" | translate}}...</button>
+    </div>
+  </div>
+</div>
+<div data-component="crn-form" id="crn-form-form-DadoPessoalSerasa">
+  <div class="form" ng-show="DadoPessoalSerasa.editing || DadoPessoalSerasa.inserting">
+    <form crn-datasource="DadoPessoalSerasa" class="">
+      <div class="tool-bar" ng-hide="datasource.editing || datasource.inserting">
+        <button class="btn btn-primary" ng-click="datasource.startInserting()"><i class="glyphicon glyphicon-plus-sign"></i></button>
+        <button class="btn btn-success" ng-click="datasource.startEditing()"><i class="glyphicon glyphicon-edit"></i></button>
+        <button class="btn btn-primary" ng-disabled="!datasource.hasPrevious()" ng-click="datasource.previous()"><i class="glyphicon glyphicon-chevron-left"></i></button>
+        <button class="btn btn-primary" ng-disabled="!datasource.hasNext()" ng-click="datasource.next()"><i class="glyphicon glyphicon-chevron-right"></i></button>
+        <button class="btn btn-primary" ng-click="datasource.remove()"><i class="glyphicon glyphicon-trash"></i></button>
+      </div>
+      <div class="active-bar" ng-hide="!datasource.editing &amp;&amp; !datasource.inserting">
+        <button class="btn btn-success" ng-click="datasource.post()"><i class="glyphicon glyphicon-ok"></i></button>
+        <button class="btn btn-danger" ng-click="datasource.cancel()"><i class="glyphicon glyphicon-remove"></i></button>
+      </div>
+      <br/>
+      <fieldset ng-disabled="!datasource.editing &amp;&amp; !datasource.inserting">
+        
+        <div data-component="crn-textinput" id="crn-textinput-nome">
+          <div class="form-group">
+            <label for="textinput-nome" class="">Nome</label>
+            <input
+              type="text"
+              ng-model="DadoPessoalSerasa.active.nome"
+              class="form-control"
+              id="textinput-nome"
+              placeholder="Nome"
+              >
+          </div>
+        </div>
+        
+        <div data-component="crn-textinput" id="crn-textinput-cpf">
+          <div class="form-group">
+            <label for="textinput-cpf" class="">Cpf</label>
+            <input
+              type="text"
+              ng-model="DadoPessoalSerasa.active.cpf"
+              class="form-control"
+              id="textinput-cpf"
+              placeholder="Cpf"
+              >
+          </div>
+        </div>
+        
+        <div data-component="crn-textinput" id="crn-textinput-dtNascimento">
+          <div class="form-group">
+            <label for="textinput-dtNascimento" class="">Dt Nascimento</label>
+            <div style="position:relative">
+              <input type="text" as-date
+              format="DD/MM/YYYY"
+              ng-model="DadoPessoalSerasa.active.dtNascimento" class="form-control" id="textinput-dtNascimento" placeholder="Dt Nascimento" >
+            </div>
+          </div>
+        </div>
+        
+        <div data-component="crn-textinput" id="crn-textinput-nomeMae">
+          <div class="form-group">
+            <label for="textinput-nomeMae" class="">Nome Mae</label>
+            <input
+              type="text"
+              ng-model="DadoPessoalSerasa.active.nomeMae"
+              class="form-control"
+              id="textinput-nomeMae"
+              placeholder="Nome Mae"
+              >
+          </div>
+        </div>
+        
+        <div data-component="crn-textinput" id="crn-textinput-statusCpf">
+          <div class="form-group">
+            <label for="textinput-statusCpf" class="">Status Cpf</label>
+            <input
+              type="text"
+              ng-model="DadoPessoalSerasa.active.statusCpf"
+              class="form-control"
+              id="textinput-statusCpf"
+              placeholder="Status Cpf"
+              >
+          </div>
+        </div>
+        
+        <div data-component="crn-textinput" id="crn-textinput-serasaScore">
+          <div class="form-group">
+            <label for="textinput-serasaScore" class="">Serasa Score</label>
+            <input
+              type="text"
+              ng-model="DadoPessoalSerasa.active.serasaScore"
+              class="form-control"
+              id="textinput-serasaScore"
+              placeholder="Serasa Score"
+              >
+          </div>
+        </div>
+        
+        <div data-component="crn-textinput" id="crn-textinput-estadoCivil">
+          <div class="form-group">
+            <label for="textinput-estadoCivil" class="">Estado Civil</label>
+            <input
+              type="text"
+              ng-model="DadoPessoalSerasa.active.estadoCivil"
+              class="form-control"
+              id="textinput-estadoCivil"
+              placeholder="Estado Civil"
+              >
+          </div>
+        </div>
+        
+        <div data-component="crn-textinput" id="crn-textinput-sexo">
+          <div class="form-group">
+            <label for="textinput-sexo" class="">Sexo</label>
+            <input
+              type="text"
+              ng-model="DadoPessoalSerasa.active.sexo"
+              class="form-control"
+              id="textinput-sexo"
+              placeholder="Sexo"
+              >
+          </div>
+        </div>
+        
+        <div data-component="crn-textinput" id="crn-textinput-signo">
+          <div class="form-group">
+            <label for="textinput-signo" class="">Signo</label>
+            <input
+              type="text"
+              ng-model="DadoPessoalSerasa.active.signo"
+              class="form-control"
+              id="textinput-signo"
+              placeholder="Signo"
+              >
+          </div>
+        </div>
+        
+        <div data-component="crn-textinput" id="crn-textinput-ratingPessoal">
+          <div class="form-group">
+            <label for="textinput-ratingPessoal" class="">Rating Pessoal</label>
+            <input
+              type="text"
+              ng-model="DadoPessoalSerasa.active.ratingPessoal"
+              class="form-control"
+              id="textinput-ratingPessoal"
+              placeholder="Rating Pessoal"
+              >
+          </div>
+        </div>
+        
+        <div data-component="crn-textinput" id="crn-textinput-ratingNegocio">
+          <div class="form-group">
+            <label for="textinput-ratingNegocio" class="">Rating Negocio</label>
+            <input
+              type="text"
+              ng-model="DadoPessoalSerasa.active.ratingNegocio"
+              class="form-control"
+              id="textinput-ratingNegocio"
+              placeholder="Rating Negocio"
+              >
+          </div>
+        </div>
+        <div data-component="crn-datasource" class="component-holder">
+          <datasource name="Anotacaonegativa" entity="api/rest/itv/AnotacaoNegativa" keys="id" class="" dependent-by="{{DadoPessoalSerasa}}"></datasource>
+        </div>
+        
+        <div data-component="crn-combobox-dynamic" id="crn-combobox-dynamic-anotacaoNegativa">
+          <div class="form-group">
+            <label for="combobox-dynamic-anotacaoNegativa" class="">AnotacaoNegativa</label>
+            <ui-select ng-model="DadoPessoalSerasa.active.anotacaoNegativa" crn-datasource="Anotacaonegativa" class="crn-select" id="combobox-dynamic-anotacaoNegativa"  theme="bootstrap">
+              <ui-select-match class="" placeholder="Select...">
+                {{$select.selected.id}}
+              </ui-select-match>
+              <ui-select-choices  repeat="rowData in datasource.data | filter : $select.search" class="" refresh="" refresh-deplay="">
+                <div class="" data-container="true">
+                  {{rowData.id}}
+                </div>
+              </ui-select-choices>
+            </ui-select>
+          </div>
+        </div>
+        <!-- NtoN  -->
+        <!-- NtoN  end-->
+      </fieldset>
+    </form>
+    <form>
+        <fieldset>
+        <!-- OneToN -->
+        <!-- OneToOne  end -->
+        </fieldset>
+    </form>
+  </div>
+</div>
+
+
+<!-- OneToOne modal -->
+<!-- OneToOne modal end-->

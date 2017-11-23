@@ -56,7 +56,7 @@ public interface PessoaDAO extends JpaRepository<Pessoa, java.lang.Integer> {
    * 
    * @generated
    */
-  @Query("select p from Pessoa p where p.nome LIKE CONCAT('%', COALESCE(:nome, p.nome),'%')")
+  @Query("select p from Pessoa p where p.nome LIKE CONCAT('%', COALESCE(upper(:nome), upper(p.nome)),'%')")
   public Page<Pessoa> listByNome(@Param(value="nome") java.lang.String nome, Pageable pageable);
   
 
