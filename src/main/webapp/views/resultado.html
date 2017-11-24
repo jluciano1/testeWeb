@@ -39,7 +39,7 @@ Nome pesquisado: {{nome}}
           </td>
           <td class="">
             <div class="">
-              <button class="btn btn-default btn-sm" type="submit" ng-click="selecionar()"><i class="glyphicon glyphicon-zoom-in"></i></button>
+              <button class="btn btn-default btn-sm" type="submit" ng-click="selecionar(rowData.id)"><i class="glyphicon glyphicon-zoom-in"></i></button>
             </div>
           </td>
         </tr>
@@ -49,4 +49,7 @@ Nome pesquisado: {{nome}}
       <button class="btn btn-default btn-block btn-clicked" ng-show="datasource.hasNextPage()" ng-click="datasource.nextPage()">{{"template.crud.load_more" | translate}}...</button>
     </div>
   </div>
+</div>
+<div class="table-footer-controls">
+  <button class="btn btn-default btn-sm" type="submit" ng-click="voltar()"><i class="glyphicon glyphicon-circle-arrow-left"></i></button>
 </div>

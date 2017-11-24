@@ -62,6 +62,12 @@ var app = (function() {
           controller: 'ResultadoController',
           templateUrl: 'views/resultado.html'
         })
+        
+        .state('detalhe', {
+          url: "/detalhe",
+          controller: 'DetalheController',
+          templateUrl: 'views/detalhe.html'
+        })
 
         .state('home.pages', {
           url: "/{name:.*}",

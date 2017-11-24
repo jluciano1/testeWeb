@@ -1,55 +1,111 @@
 <h3>Resultado</h3>
-<datasource filter="{{'/listByNome/' + nome}}" name="Pessoa" entity="api/rest/itv/Pessoa" keys="id" rows-per-page="100" delete-message="Deseja remover?" class=""></datasource>
-<div data-component="crn-button" id="novo">
-  <button class="btn btn-primary" type="submit" onclick="" ng-click="startInserting()" ng-hide="inserting"><i class="fa fa-user"></i> <span class="">Nova mercadoria</span></button>
+<div class="table-footer-controls">
+  <button class="btn btn-default btn-sm" type="submit" ng-click="voltar()"><i class="glyphicon glyphicon-circle-arrow-left"></i></button>
 </div>
-nome: {{nome}}
-<div class="component-holder" data-component="crn-grid" id="crn-grid-Pessoa">
-  <div crn-datasource="Pessoa" class="" ng-hide="Pessoa.editing || Pessoa.inserting">
-    <table class="table  table-bordered table-hover table-striped">
-      <thead>
-        <tr class="table-header">
-          <th class="">
-            <div class="">Nome</div>
-          </th>
-          <th class="">
-            <div class="">Cpf</div>
-          </th>
-          <th class="">
-            <div class="">Email</div>
-          </th>
-          <th class="">
-            <div class="">Detalhes</div>
-          </th>
+<datasource filter="{{'/' + idPessoa}}" name="Pessoa" entity="api/rest/itv/Pessoa" keys="id" rows-per-page="100" delete-message="Deseja remover?" class=""></datasource>
+<div class="ctn-tab">  
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a data-target="#tab1" role="tab" data-toggle="tab">Dados Pessoais</a></li>
+    <li role="presentation"><a data-target="#tab2" role="tab" data-toggle="tab">Dados Serasa</a></li>
+    <li role="presentation"><a data-target="#tab3" role="tab" data-toggle="tab">Dados Facebook</a></li>
+    <li role="presentation"><a data-target="#tab4" role="tab" data-toggle="tab">Dados LinkedIn</a></li>
+  </ul>
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="tab1"><div data-container="true">
+        
+      <table class="table table-hover"> 
+      <thead class="thead-inverse"> 
+        <tr> 
+          <th>Pessoa selecionada: {{Pessoa.active.nome}}</th> 
+          <th></th> 
+        </tr> 
+      </thead> 
+      <tbody> 
+        <tr> 
+          <td class=""><b>CPF:</b> {{Pessoa.active.cpf}} </td> 
+        </tr> 
+        <tr> 
+          <td class=""><b>E-mail:</b> {{Pessoa.active.email}} </td> 
+        </tr> 
+        <tr> 
+          <td><b>Data cadastro:</b> {{Pessoa.active.dtCadastro |  date:'dd/MM/yyyy'}} </td> 
         </tr>
-      </thead>
-      <tbody>
-        <tr class="table-content" ng-repeat="rowData in datasource.data">
-          <td class="">
-            <div class="">
-              {{rowData.nome}}
-            </div>
-          </td>
-          <td class="">
-            <div class="">
-              {{rowData.cpf}}
-            </div>
-          </td>
-          <td class="">
-            <div class="">
-              {{rowData.email}}
-            </div>
-          </td>
-          <td class="">
-            <div class="">
-              <button class="btn btn-default btn-sm" type="submit" ng-click="verDetalhe()"><i class="glyphicon glyphicon-zoom-in"></i></button>
-            </div>
-          </td>
+        <tr> 
+          <td><b>Data nascimento:</b> {{Pessoa.active.dtNascimento |  date:'dd/MM/yyyy'}} </td> 
         </tr>
-      </tbody>
-    </table>
-    <div class="table-footer-controls">
-      <button class="btn btn-default btn-block btn-clicked" ng-show="datasource.hasNextPage()" ng-click="datasource.nextPage()">{{"template.crud.load_more" | translate}}...</button>
-    </div>
+        <tr> 
+          <td><b>Cadastrado por:</b> {{Pessoa.active.cadastrante}} </td> 
+        </tr>
+        <tr> 
+          <td><b>Alterado por:</b> {{Pessoa.active.alteradoPor}} </td> 
+        </tr>
+        <tr> 
+          <td><b>Preferencial Goiânia:</b> {{Pessoa.active.preferencialGoiania}} </td> 
+        </tr>
+        <tr> 
+          <td><b>Substituto Trib:</b> {{Pessoa.active.substitutoTrib}} </td> 
+        </tr>
+        <tr> 
+          <td><b>Status:</b> {{Pessoa.active.status}} </td> 
+        </tr>
+        <tr> 
+          <td><b>Interno/Externo:</b> {{Pessoa.active.internoExterno}} </td> 
+        </tr>
+        <tr> 
+          <td><b>Tipo cliente:</b> {{Pessoa.active.tipoCliente}} </td> 
+        </tr>
+        <tr> 
+          <td><b>Data alteração:</b> {{Pessoa.active.dtAlteracao |  date:'dd/MM/yyyy'}} </td> 
+        </tr>
+        <tr> 
+          <td><b>Tipo:</b> {{Pessoa.active.tipo}} </td> 
+        </tr> 
+      </tbody> 
+    </table> 
+    </div></div>
+    <div role="tabpanel" class="tab-pane" id="tab2"><div data-container="true">
+        
+        <table class="table table-hover"> 
+          <thead class="thead-inverse"> 
+            <tr> 
+              <th>Pessoa selecionada: {{Pessoa.active.nome}}</th> 
+              <th></th> 
+            </tr> 
+          </thead> 
+          <tbody> 
+            <tr> 
+              <td class=""><b>CPF:</b> {{Pessoa.active.dadoPessoalSerasa.cpf}} </td> 
+            </tr> 
+            <tr> 
+              <td><b>Data nascimento:</b> {{Pessoa.active.dadoPessoalSerasa.dtNascimento |  date:'dd/MM/yyyy'}} </td> 
+            </tr>
+            <tr> 
+              <td><b>Nome da mãe:</b> {{Pessoa.active.dadoPessoalSerasa.nomeMae}} </td> 
+            </tr>
+            <tr> 
+              <td><b>Status cpf:</b> {{Pessoa.active.dadoPessoalSerasa.statusCpf}} </td> 
+            </tr>
+            <tr> 
+              <td><b>Serasa score:</b> {{Pessoa.active.dadoPessoalSerasa.serasaScore}} </td> 
+            </tr>
+            <tr> 
+              <td><b>Estado cívil:</b> {{Pessoa.active.dadoPessoalSerasa.estadoCivil}} </td> 
+            </tr>
+            <tr> 
+              <td><b>Sexo:</b> {{Pessoa.active.dadoPessoalSerasa.sexo}} </td> 
+            </tr>
+            <tr> 
+              <td><b>Signo:</b> {{Pessoa.active.dadoPessoalSerasa.signo}} </td> 
+            </tr>
+            <tr> 
+              <td><b>Rating Pessoal:</b> {{Pessoa.active.dadoPessoalSerasa.ratingPessoal}} </td> 
+            </tr>
+          </tbody> 
+        </table> 
+        
+    </div></div>
   </div>
 </div>
+
+    
+  
