@@ -114,4 +114,12 @@ public class DadoVizinhoBusiness {
     return result;
   }
   
+  public Page<DadoVizinho> findByPessoaId(java.lang.Integer id, Pageable pageable) {
+    // begin-user-code
+    // end-user-code  
+    Page<DadoVizinho> result = repository.findByPessoaId(id, pageable);
+    // begin-user-code  
+    // end-user-code        
+    return result;
+  }
 }

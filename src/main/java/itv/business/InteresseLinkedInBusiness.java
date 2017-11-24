@@ -114,4 +114,13 @@ public class InteresseLinkedInBusiness {
     return result;
   }
   
+  public Page<InteresseLinkedIn> findByPessoaId(java.lang.Integer id, Pageable pageable) {
+    // begin-user-code
+    // end-user-code  
+    Page<InteresseLinkedIn> result = repository.findByPessoaId(id, pageable);
+    // begin-user-code  
+    // end-user-code        
+    return result;
+  }
+  
 }

@@ -5,9 +5,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import java.util.*;
-import itv.dao.*;
-import itv.entity.*;
+
+import itv.dao.AnotacaoNegativaDAO;
+import itv.entity.AnotacaoNegativa;
 
 /**
  * Classe que representa a camada de negócios de AnotacaoNegativaBusiness
@@ -99,6 +99,15 @@ public class AnotacaoNegativaBusiness {
     Page<AnotacaoNegativa> result = repository.list(pageable);
     // begin-user-code
     // end-user-code
+    return result;
+  }
+  
+  public Page<AnotacaoNegativa> findByPessoaId(java.lang.Integer id, Pageable pageable) {
+    // begin-user-code
+    // end-user-code  
+    Page<AnotacaoNegativa> result = repository.findByDadoPessoaId(id, pageable);
+    // begin-user-code  
+    // end-user-code        
     return result;
   }
 }

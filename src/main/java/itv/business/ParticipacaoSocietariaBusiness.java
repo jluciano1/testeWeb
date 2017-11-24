@@ -5,9 +5,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import java.util.*;
-import itv.dao.*;
-import itv.entity.*;
+
+import itv.dao.ParticipacaoSocietariaDAO;
+import itv.entity.ParticipacaoSocietaria;
 
 /**
  * Classe que representa a camada de negócios de ParticipacaoSocietariaBusiness
@@ -109,6 +109,15 @@ public class ParticipacaoSocietariaBusiness {
     // begin-user-code
     // end-user-code  
     Page<ParticipacaoSocietaria> result = repository.findParticipacaoSocietariasByDadoPessoalSerasa(instanceId, pageable);
+    // begin-user-code  
+    // end-user-code        
+    return result;
+  }
+  
+  public Page<ParticipacaoSocietaria> findByPessoaId(java.lang.Integer id, Pageable pageable) {
+    // begin-user-code
+    // end-user-code  
+    Page<ParticipacaoSocietaria> result = repository.findByPessoaId(id, pageable);
     // begin-user-code  
     // end-user-code        
     return result;

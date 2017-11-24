@@ -96,4 +96,9 @@ public class FormacaoAcademicaLinkedInREST {
   public HttpEntity<PagedResources<FormacaoAcademicaLinkedIn>> findFormacaoAcademicaLinkedInsByDadoPessoalLinkedIn(@PathVariable("dadoPessoalLinkedInId") java.lang.Integer dadoPessoalLinkedInId, Pageable pageable, PagedResourcesAssembler assembler) {
     return new ResponseEntity<>(assembler.toResource(formacaoAcademicaLinkedInBusiness.findFormacaoAcademicaLinkedInsByDadoPessoalLinkedIn(dadoPessoalLinkedInId, pageable)), HttpStatus.OK);
   }
+  
+  @RequestMapping(method = RequestMethod.GET, value="/Pessoa/{pessoaId}")    
+  public HttpEntity<PagedResources<FormacaoAcademicaLinkedIn>> findByPessoaId(@PathVariable("pessoaId") java.lang.Integer id, Pageable pageable, PagedResourcesAssembler assembler) {
+    return new ResponseEntity<>(assembler.toResource(formacaoAcademicaLinkedInBusiness.findByPessoaId(id, pageable)), HttpStatus.OK);
+  }
 }

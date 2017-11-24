@@ -74,4 +74,7 @@ public interface DadoPessoalSerasaDAO extends JpaRepository<DadoPessoalSerasa, j
   @Query("SELECT entity FROM ParticipacaoSocietaria entity WHERE entity.dadoPessoalSerasa.id = :id")
   public Page<ParticipacaoSocietaria> findParticipacaoSocietaria(@Param(value="id") java.lang.Integer id, Pageable pageable);
 
+  @Query("SELECT entity FROM DadoPessoalSerasa entity left join Pessoa p WHERE entity.id = p.dadoPessoalSerasa.id and p.id = :id")
+  public Page<DadoPessoalSerasa> findByPessoaId(@Param(value="id") java.lang.Integer id, Pageable pageable);
+
 }

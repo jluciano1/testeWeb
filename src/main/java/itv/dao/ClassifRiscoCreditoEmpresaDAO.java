@@ -51,6 +51,7 @@ public interface ClassifRiscoCreditoEmpresaDAO extends JpaRepository<ClassifRisc
   @Query("select c from ClassifRiscoCreditoEmpresa c")
   public Page<ClassifRiscoCreditoEmpresa> list(Pageable pageable);
   
-
+  @Query("SELECT entity FROM ClassifRiscoCreditoEmpresa entity left join ParticipacaoSocietaria ps left join DadoPessoalSerasa dps left join Pessoa p WHERE entity.id = ps.classifRiscoCreditoEmpresa.id and dps.id = ps.dadoPessoalSerasa.id and p.id = :id")
+  public Page<ClassifRiscoCreditoEmpresa> findByDadoPessoaId(@Param(value="id") java.lang.Integer id, Pageable pageable);
 
 }

@@ -101,4 +101,14 @@ public class ClassifRiscoCreditoEmpresaBusiness {
     // end-user-code
     return result;
   }
+  
+  public Page<ClassifRiscoCreditoEmpresa> findByPessoaId(java.lang.Integer id, Pageable pageable) {
+    // begin-user-code
+    // end-user-code  
+    Page<ClassifRiscoCreditoEmpresa> result = repository.findByDadoPessoaId(id, pageable);
+    // begin-user-code  
+    // end-user-code        
+    return result;
+  }
+  
 }

@@ -140,4 +140,13 @@ public class DadoPessoalLinkedInBusiness {
     // end-user-code        
     return result;    
   }
+  
+  public Page<DadoPessoalLinkedIn> findByPessoaId(java.lang.Integer id, Pageable pageable) {
+    // begin-user-code
+    // end-user-code  
+    Page<DadoPessoalLinkedIn> result = repository.findByPessoaId(id, pageable);
+    // begin-user-code  
+    // end-user-code        
+    return result;
+  }
 }

@@ -88,12 +88,8 @@ public class AcontecimentoFacebookREST {
     return acontecimentoFacebookBusiness.get(acontecimentoFacebookId);
   }
 
-  /**
-   * Foreign Key dadoPessoalFacebook
-   * @generated
-   */
-  @RequestMapping(method = RequestMethod.GET, value="/DadoPessoalFacebook/{dadoPessoalFacebookId}")    
-  public HttpEntity<PagedResources<AcontecimentoFacebook>> findAcontecimentoFacebooksByDadoPessoalFacebook(@PathVariable("dadoPessoalFacebookId") java.lang.Integer dadoPessoalFacebookId, Pageable pageable, PagedResourcesAssembler assembler) {
-    return new ResponseEntity<>(assembler.toResource(acontecimentoFacebookBusiness.findAcontecimentoFacebooksByDadoPessoalFacebook(dadoPessoalFacebookId, pageable)), HttpStatus.OK);
+  @RequestMapping(method = RequestMethod.GET, value="/Pessoa/{pessoaId}")    
+  public HttpEntity<PagedResources<AcontecimentoFacebook>> findAcontecimentoFacebooksByDadoPessoaId(@PathVariable("pessoaId") java.lang.Integer id, Pageable pageable, PagedResourcesAssembler assembler) {
+    return new ResponseEntity<>(assembler.toResource(acontecimentoFacebookBusiness.findAcontecimentoFacebooksByPessoaId(id, pageable)), HttpStatus.OK);
   }
 }

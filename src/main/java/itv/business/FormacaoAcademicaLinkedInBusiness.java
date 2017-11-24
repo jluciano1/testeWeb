@@ -114,4 +114,13 @@ public class FormacaoAcademicaLinkedInBusiness {
     return result;
   }
   
+  public Page<FormacaoAcademicaLinkedIn> findByPessoaId(java.lang.Integer id, Pageable pageable) {
+    // begin-user-code
+    // end-user-code  
+    Page<FormacaoAcademicaLinkedIn> result = repository.findByPessoaId(id, pageable);
+    // begin-user-code  
+    // end-user-code        
+    return result;
+  }
+  
 }

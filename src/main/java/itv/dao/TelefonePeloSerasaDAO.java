@@ -1,12 +1,15 @@
 package itv.dao;
 
-import itv.entity.*;
-import java.util.*;
-import org.springframework.stereotype.*;
-import org.springframework.data.jpa.repository.*;
-import org.springframework.data.domain.*;
-import org.springframework.data.repository.query.*;
-import org.springframework.transaction.annotation.*; 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import itv.entity.TelefonePeloSerasa; 
 
 /**
  * Realiza operação de Create, Read, Update e Delete no banco de dados.
@@ -59,5 +62,8 @@ public interface TelefonePeloSerasaDAO extends JpaRepository<TelefonePeloSerasa,
    */
   @Query("SELECT entity FROM TelefonePeloSerasa entity WHERE entity.dadoPessoalSerasa.id = :id")
   public Page<TelefonePeloSerasa> findTelefonePeloSerasasByDadoPessoalSerasa(@Param(value="id") java.lang.Integer id, Pageable pageable);
+  
+  @Query("SELECT entity FROM TelefonePeloSerasa entity left join DadoPessoalSerasa dps left join Pessoa p WHERE entity.dadoPessoalSerasa.id = dps.id and dps.id = p.dadoPessoalSerasa.id and p.id = :id")
+  public Page<TelefonePeloSerasa> findByPessoaId(@Param(value="id") java.lang.Integer id, Pageable pageable);
 
 }

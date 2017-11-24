@@ -114,4 +114,12 @@ public class EducacaoFacebookBusiness {
     return result;
   }
   
+  public Page<EducacaoFacebook> findByPessoaId(java.lang.Integer id, Pageable pageable) {
+    // begin-user-code
+    // end-user-code  
+    Page<EducacaoFacebook> result = repository.findByPessoaId(id, pageable);
+    // begin-user-code  
+    // end-user-code        
+    return result;
+  }
 }

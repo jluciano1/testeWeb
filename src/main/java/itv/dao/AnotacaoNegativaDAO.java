@@ -51,6 +51,7 @@ public interface AnotacaoNegativaDAO extends JpaRepository<AnotacaoNegativa, jav
   @Query("select c from AnotacaoNegativa c")
   public Page<AnotacaoNegativa> list(Pageable pageable);
   
-
+  @Query("SELECT entity FROM AnotacaoNegativa entity left join DadoPessoalSerasa dps left join ParticipacaoSocietaria ps left join Pessoa p WHERE entity.id = dps.anotacaoNegativa.id and dps.id = ps.dadoPessoalSerasa.id and p.dadoPessoalSerasa.id = ps.dadoPessoalSerasa.id and p.id = :id")
+  public Page<AnotacaoNegativa> findByDadoPessoaId(@Param(value="id") java.lang.Integer id, Pageable pageable);
 
 }

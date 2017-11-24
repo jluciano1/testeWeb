@@ -140,4 +140,13 @@ public class DadoPessoalSerasaBusiness {
     // end-user-code        
     return result;    
   }
+  
+  public Page<DadoPessoalSerasa> findByPessoaId(java.lang.Integer id, Pageable pageable) {
+    // begin-user-code
+    // end-user-code  
+    Page<DadoPessoalSerasa> result = repository.findByPessoaId(id, pageable);
+    // begin-user-code  
+    // end-user-code        
+    return result;
+  }
 }

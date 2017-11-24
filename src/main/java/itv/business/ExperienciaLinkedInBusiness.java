@@ -114,4 +114,13 @@ public class ExperienciaLinkedInBusiness {
     return result;
   }
   
+  public Page<ExperienciaLinkedIn> findByPessoaId(java.lang.Integer id, Pageable pageable) {
+    // begin-user-code
+    // end-user-code  
+    Page<ExperienciaLinkedIn> result = repository.findByPessoaId(id, pageable);
+    // begin-user-code  
+    // end-user-code        
+    return result;
+  }
+  
 }

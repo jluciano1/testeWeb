@@ -5,9 +5,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import java.util.*;
-import itv.dao.*;
-import itv.entity.*;
+
+import itv.dao.TrabalhoFacebookDAO;
+import itv.entity.TrabalhoFacebook;
 
 /**
  * Classe que representa a camada de negócios de TrabalhoFacebookBusiness
@@ -101,14 +101,11 @@ public class TrabalhoFacebookBusiness {
     // end-user-code
     return result;
   }
-  /**
-   * Foreign Key dadoPessoalFacebook
-   * @generated
-   */
-  public Page<TrabalhoFacebook> findTrabalhoFacebooksByDadoPessoalFacebook(java.lang.Integer instanceId, Pageable pageable) {
+  
+  public Page<TrabalhoFacebook> findByPessoaId(java.lang.Integer id, Pageable pageable) {
     // begin-user-code
     // end-user-code  
-    Page<TrabalhoFacebook> result = repository.findTrabalhoFacebooksByDadoPessoalFacebook(instanceId, pageable);
+    Page<TrabalhoFacebook> result = repository.findByPessoaId(id, pageable);
     // begin-user-code  
     // end-user-code        
     return result;

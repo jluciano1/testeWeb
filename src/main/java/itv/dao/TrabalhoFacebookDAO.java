@@ -57,7 +57,7 @@ public interface TrabalhoFacebookDAO extends JpaRepository<TrabalhoFacebook, jav
    * Foreign Key dadoPessoalFacebook
    * @generated
    */
-  @Query("SELECT entity FROM TrabalhoFacebook entity WHERE entity.dadoPessoalFacebook.id = :id")
-  public Page<TrabalhoFacebook> findTrabalhoFacebooksByDadoPessoalFacebook(@Param(value="id") java.lang.Integer id, Pageable pageable);
+  @Query("SELECT entity FROM TrabalhoFacebook entity left join DadoPessoalFacebook dpf left join Pessoa p WHERE entity.dadoPessoalFacebook.id = dpf.id and p.dadoPessoalFacebook.id = dpf.id and p.id = :id")
+  public Page<TrabalhoFacebook> findByPessoaId(@Param(value="id") java.lang.Integer id, Pageable pageable);
 
 }

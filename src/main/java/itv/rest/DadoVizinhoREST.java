@@ -96,4 +96,9 @@ public class DadoVizinhoREST {
   public HttpEntity<PagedResources<DadoVizinho>> findDadoVizinhosByEnderecoPeloSerasa(@PathVariable("enderecoPeloSerasaId") java.lang.Integer enderecoPeloSerasaId, Pageable pageable, PagedResourcesAssembler assembler) {
     return new ResponseEntity<>(assembler.toResource(dadoVizinhoBusiness.findDadoVizinhosByEnderecoPeloSerasa(enderecoPeloSerasaId, pageable)), HttpStatus.OK);
   }
+  
+  @RequestMapping(method = RequestMethod.GET, value="/Pessoa/{pessoaId}")    
+  public HttpEntity<PagedResources<DadoVizinho>> findByPessoaId(@PathVariable("pessoaId") java.lang.Integer id, Pageable pageable, PagedResourcesAssembler assembler) {
+    return new ResponseEntity<>(assembler.toResource(dadoVizinhoBusiness.findByPessoaId(id, pageable)), HttpStatus.OK);
+  }
 }

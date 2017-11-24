@@ -1,12 +1,15 @@
 package itv.dao;
 
-import itv.entity.*;
-import java.util.*;
-import org.springframework.stereotype.*;
-import org.springframework.data.jpa.repository.*;
-import org.springframework.data.domain.*;
-import org.springframework.data.repository.query.*;
-import org.springframework.transaction.annotation.*; 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import itv.entity.InteresseLinkedIn; 
 
 /**
  * Realiza operação de Create, Read, Update e Delete no banco de dados.
@@ -59,5 +62,8 @@ public interface InteresseLinkedInDAO extends JpaRepository<InteresseLinkedIn, j
    */
   @Query("SELECT entity FROM InteresseLinkedIn entity WHERE entity.dadoPessoalLinkedIn.id = :id")
   public Page<InteresseLinkedIn> findInteresseLinkedInsByDadoPessoalLinkedIn(@Param(value="id") java.lang.Integer id, Pageable pageable);
+
+  @Query("SELECT entity FROM InteresseLinkedIn entity left join DadoPessoalLinkedIn dpl left join Pessoa p WHERE entity.dadoPessoalLinkedIn.id = dpl.id and p.dadoPessoalLinkedIn.id = dpl.id and p.id = :id")
+  public Page<InteresseLinkedIn> findByPessoaId(@Param(value="id") java.lang.Integer id, Pageable pageable);
 
 }

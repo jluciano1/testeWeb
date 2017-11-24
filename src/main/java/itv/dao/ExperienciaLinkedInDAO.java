@@ -59,5 +59,8 @@ public interface ExperienciaLinkedInDAO extends JpaRepository<ExperienciaLinkedI
    */
   @Query("SELECT entity FROM ExperienciaLinkedIn entity WHERE entity.dadoPessoalLinkedIn.id = :id")
   public Page<ExperienciaLinkedIn> findExperienciaLinkedInsByDadoPessoalLinkedIn(@Param(value="id") java.lang.Integer id, Pageable pageable);
+  
+  @Query("SELECT entity FROM ExperienciaLinkedIn entity left join DadoPessoalLinkedIn dpl left join Pessoa p WHERE entity.dadoPessoalLinkedIn.id = dpl.id and dpl.id = p.dadoPessoalLinkedIn.id and p.id = :id")
+  public Page<ExperienciaLinkedIn> findByPessoaId(@Param(value="id") java.lang.Integer id, Pageable pageable);
 
 }

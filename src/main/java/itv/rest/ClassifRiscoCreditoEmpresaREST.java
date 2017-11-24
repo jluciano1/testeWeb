@@ -87,4 +87,10 @@ public class ClassifRiscoCreditoEmpresaREST {
   public ClassifRiscoCreditoEmpresa get(@PathVariable("classifRiscoCreditoEmpresaId") java.lang.Integer classifRiscoCreditoEmpresaId) throws Exception {
     return classifRiscoCreditoEmpresaBusiness.get(classifRiscoCreditoEmpresaId);
   }
+  
+  @RequestMapping(method = RequestMethod.GET, value="/Pessoa/{pessoaId}")    
+  public HttpEntity<PagedResources<ClassifRiscoCreditoEmpresa>> findByPessoaId(@PathVariable("pessoaId") java.lang.Integer id, Pageable pageable, PagedResourcesAssembler assembler) {
+    return new ResponseEntity<>(assembler.toResource(classifRiscoCreditoEmpresaBusiness.findByPessoaId(id, pageable)), HttpStatus.OK);
+  }
+  
 }

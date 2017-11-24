@@ -127,4 +127,12 @@ public class EnderecoPeloSerasaBusiness {
     return result;
   }
   
+  public Page<EnderecoPeloSerasa> findByPessoaId(java.lang.Integer id, Pageable pageable) {
+    // begin-user-code
+    // end-user-code  
+    Page<EnderecoPeloSerasa> result = repository.findByPessoaId(id, pageable);
+    // begin-user-code  
+    // end-user-code        
+    return result;
+  }
 }

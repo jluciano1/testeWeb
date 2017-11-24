@@ -1,15 +1,22 @@
 package itv.rest;
 
-import org.springframework.data.domain.*;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.validation.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PagedResourcesAssembler;
 import org.springframework.hateoas.PagedResources;
-import org.springframework.http.*;
-import org.springframework.beans.factory.annotation.*;
-import java.util.*;
-import itv.entity.*;
-import itv.business.*;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import itv.business.ParticipacaoSocietariaBusiness;
+import itv.entity.ParticipacaoSocietaria;
 
 /**
  * Controller para expor serviços REST de ParticipacaoSocietaria
@@ -95,5 +102,10 @@ public class ParticipacaoSocietariaREST {
   @RequestMapping(method = RequestMethod.GET, value="/DadoPessoalSerasa/{dadoPessoalSerasaId}")    
   public HttpEntity<PagedResources<ParticipacaoSocietaria>> findParticipacaoSocietariasByDadoPessoalSerasa(@PathVariable("dadoPessoalSerasaId") java.lang.Integer dadoPessoalSerasaId, Pageable pageable, PagedResourcesAssembler assembler) {
     return new ResponseEntity<>(assembler.toResource(participacaoSocietariaBusiness.findParticipacaoSocietariasByDadoPessoalSerasa(dadoPessoalSerasaId, pageable)), HttpStatus.OK);
+  }
+  
+  @RequestMapping(method = RequestMethod.GET, value="/Pessoa/{pessoaId}")    
+  public HttpEntity<PagedResources<ParticipacaoSocietaria>> findByPessoaId(@PathVariable("pessoaId") java.lang.Integer id, Pageable pageable, PagedResourcesAssembler assembler) {
+    return new ResponseEntity<>(assembler.toResource(participacaoSocietariaBusiness.findByPessoaId(id, pageable)), HttpStatus.OK);
   }
 }

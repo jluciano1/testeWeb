@@ -96,4 +96,9 @@ public class EducacaoFacebookREST {
   public HttpEntity<PagedResources<EducacaoFacebook>> findEducacaoFacebooksByDadoPessoalFacebook(@PathVariable("dadoPessoalFacebookId") java.lang.Integer dadoPessoalFacebookId, Pageable pageable, PagedResourcesAssembler assembler) {
     return new ResponseEntity<>(assembler.toResource(educacaoFacebookBusiness.findEducacaoFacebooksByDadoPessoalFacebook(dadoPessoalFacebookId, pageable)), HttpStatus.OK);
   }
+  
+  @RequestMapping(method = RequestMethod.GET, value="/Pessoa/{pessoaId}")    
+  public HttpEntity<PagedResources<EducacaoFacebook>> findByPessoaId(@PathVariable("pessoaId") java.lang.Integer id, Pageable pageable, PagedResourcesAssembler assembler) {
+    return new ResponseEntity<>(assembler.toResource(educacaoFacebookBusiness.findByPessoaId(id, pageable)), HttpStatus.OK);
+  }
 }

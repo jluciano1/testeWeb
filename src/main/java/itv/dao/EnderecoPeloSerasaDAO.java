@@ -66,5 +66,8 @@ public interface EnderecoPeloSerasaDAO extends JpaRepository<EnderecoPeloSerasa,
    */
   @Query("SELECT entity FROM EnderecoPeloSerasa entity WHERE entity.dadoPessoalSerasa.id = :id")
   public Page<EnderecoPeloSerasa> findEnderecoPeloSerasasByDadoPessoalSerasa(@Param(value="id") java.lang.Integer id, Pageable pageable);
+  
+  @Query("SELECT entity FROM EnderecoPeloSerasa entity left join DadoPessoalSerasa dps left join Pessoa p WHERE entity.dadoPessoalSerasa.id = dps.id and p.dadoPessoalSerasa.id = dps.id and p.id = :id")
+  public Page<EnderecoPeloSerasa> findByPessoaId(@Param(value="id") java.lang.Integer id, Pageable pageable);
 
 }

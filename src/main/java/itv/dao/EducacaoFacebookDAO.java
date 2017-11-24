@@ -60,4 +60,7 @@ public interface EducacaoFacebookDAO extends JpaRepository<EducacaoFacebook, jav
   @Query("SELECT entity FROM EducacaoFacebook entity WHERE entity.dadoPessoalFacebook.id = :id")
   public Page<EducacaoFacebook> findEducacaoFacebooksByDadoPessoalFacebook(@Param(value="id") java.lang.Integer id, Pageable pageable);
 
+  @Query("SELECT entity FROM EducacaoFacebook entity left join DadoPessoalFacebook dpf left join Pessoa p WHERE entity.dadoPessoalFacebook.id = dpf.id and dpf.id = p.dadoPessoalFacebook.id and p.id = :id")
+  public Page<EducacaoFacebook> findByPessoaId(@Param(value="id") java.lang.Integer id, Pageable pageable);
+
 }

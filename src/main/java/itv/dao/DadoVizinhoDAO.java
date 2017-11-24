@@ -59,5 +59,8 @@ public interface DadoVizinhoDAO extends JpaRepository<DadoVizinho, java.lang.Int
    */
   @Query("SELECT entity FROM DadoVizinho entity WHERE entity.enderecoPeloSerasa.id = :id")
   public Page<DadoVizinho> findDadoVizinhosByEnderecoPeloSerasa(@Param(value="id") java.lang.Integer id, Pageable pageable);
+  
+  @Query("SELECT entity FROM DadoVizinho entity left join EnderecoPeloSerasa eps left join DadoPessoalSerasa dps left join Pessoa p WHERE entity.enderecoPeloSerasa.id = eps.id and eps.dadoPessoalSerasa.id = dps.id and dps.id = p.dadoPessoalSerasa.id and p.id = :id")
+  public Page<DadoVizinho> findByPessoaId(@Param(value="id") java.lang.Integer id, Pageable pageable);
 
 }

@@ -222,4 +222,9 @@ public class DadoPessoalSerasaREST {
   public DadoPessoalSerasa get(@PathVariable("dadoPessoalSerasaId") java.lang.Integer dadoPessoalSerasaId) throws Exception {
     return dadoPessoalSerasaBusiness.get(dadoPessoalSerasaId);
   }
+  
+  @RequestMapping(method = RequestMethod.GET, value="/Pessoa/{pessoaId}")    
+  public HttpEntity<PagedResources<DadoPessoalSerasa>> findByPessoaId(@PathVariable("pessoaId") java.lang.Integer id, Pageable pageable, PagedResourcesAssembler assembler) {
+    return new ResponseEntity<>(assembler.toResource(dadoPessoalSerasaBusiness.findByPessoaId(id, pageable)), HttpStatus.OK);
+  }
 }

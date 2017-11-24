@@ -59,5 +59,8 @@ public interface AcontecimentoFacebookDAO extends JpaRepository<AcontecimentoFac
    */
   @Query("SELECT entity FROM AcontecimentoFacebook entity WHERE entity.dadoPessoalFacebook.id = :id")
   public Page<AcontecimentoFacebook> findAcontecimentoFacebooksByDadoPessoalFacebook(@Param(value="id") java.lang.Integer id, Pageable pageable);
+  
+  @Query("SELECT entity FROM AcontecimentoFacebook entity left join Pessoa p WHERE entity.dadoPessoalFacebook.id = p.dadoPessoalFacebook.id and p.id = :id")
+  public Page<AcontecimentoFacebook> findAcontecimentoFacebooksByPessoaId(@Param(value="id") java.lang.Integer id, Pageable pageable);
 
 }

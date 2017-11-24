@@ -114,4 +114,13 @@ public class AcontecimentoFacebookBusiness {
     return result;
   }
   
+  public Page<AcontecimentoFacebook> findAcontecimentoFacebooksByPessoaId(java.lang.Integer id, Pageable pageable) {
+    // begin-user-code
+    // end-user-code  
+    Page<AcontecimentoFacebook> result = repository.findAcontecimentoFacebooksByDadoPessoalFacebook(id, pageable);
+    // begin-user-code  
+    // end-user-code        
+    return result;
+  }
+  
 }

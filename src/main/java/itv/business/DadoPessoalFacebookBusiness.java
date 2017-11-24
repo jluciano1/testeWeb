@@ -5,9 +5,13 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import java.util.*;
-import itv.dao.*;
-import itv.entity.*;
+
+import itv.dao.DadoPessoalFacebookDAO;
+import itv.entity.AcontecimentoFacebook;
+import itv.entity.DadoPessoalFacebook;
+import itv.entity.EducacaoFacebook;
+import itv.entity.MembroFamiliaFacebook;
+import itv.entity.TrabalhoFacebook;
 
 /**
  * Classe que representa a camada de negócios de DadoPessoalFacebookBusiness
@@ -152,5 +156,14 @@ public class DadoPessoalFacebookBusiness {
     // begin-user-code  
     // end-user-code        
     return result;    
+  }
+  
+  public Page<DadoPessoalFacebook> findByPessoaId(java.lang.Integer id, Pageable pageable) {
+    // begin-user-code
+    // end-user-code  
+    Page<DadoPessoalFacebook> result = repository.findByPessoaId(id, pageable);
+    // begin-user-code  
+    // end-user-code        
+    return result;
   }
 }
