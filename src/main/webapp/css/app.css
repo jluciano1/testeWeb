@@ -1,0 +1,14 @@
+.centro {
+  position:absolute;
+  top:35%;
+  left:20%;
+}
+.button {
+  position: absolute;   
+  top: 0; 
+  right: 0;
+}
+.container {
+  width: 50%; /* define a largura do campo */ 
+  position: relative;  /* cria o contexto de posicionamento do botão */ 
+}

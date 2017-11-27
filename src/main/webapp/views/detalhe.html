@@ -3,6 +3,17 @@
   <button class="btn btn-default btn-sm" type="submit" ng-click="voltar()"><i class="glyphicon glyphicon-circle-arrow-left"></i></button>
 </div>
 <datasource filter="{{'/' + idPessoa}}" name="Pessoa" entity="api/rest/itv/Pessoa" keys="id" rows-per-page="100" delete-message="Deseja remover?" class=""></datasource>
+<datasource filter="{{'/Pessoa/' + idPessoa}}" name="Endereco" entity="api/rest/itv/Endereco" keys="id" rows-per-page="100" delete-message="Deseja remover?" class=""></datasource>
+<datasource filter="{{'/Pessoa/' + idPessoa}}" name="EnderecoS" entity="api/rest/itv/EnderecoPeloSerasa" keys="id" rows-per-page="100" delete-message="Deseja remover?" class=""></datasource>
+<datasource filter="{{'/Pessoa/' + idPessoa}}" name="TelefoneS" entity="api/rest/itv/TelefonePeloSerasa" keys="id" rows-per-page="100" delete-message="Deseja remover?" class=""></datasource>
+<datasource filter="{{'/Pessoa/' + idPessoa}}" name="Participacao" entity="api/rest/itv/ParticipacaoSocietaria" keys="id" rows-per-page="100" delete-message="Deseja remover?" class=""></datasource>
+<datasource filter="{{'/Pessoa/' + idPessoa}}" name="TrabalhoF" entity="api/rest/itv/TrabalhoFacebook" keys="id" rows-per-page="100" delete-message="Deseja remover?" class=""></datasource>
+<datasource filter="{{'/Pessoa/' + idPessoa}}" name="EducacaoF" entity="api/rest/itv/EducacaoFacebook" keys="id" rows-per-page="100" delete-message="Deseja remover?" class=""></datasource>
+<datasource filter="{{'/Pessoa/' + idPessoa}}" name="FamiliaF" entity="api/rest/itv/MembroFamiliaFacebook" keys="id" rows-per-page="100" delete-message="Deseja remover?" class=""></datasource>
+<datasource filter="{{'/Pessoa/' + idPessoa}}" name="AcontecimentoF" entity="api/rest/itv/AcontecimentoFacebook" keys="id" rows-per-page="100" delete-message="Deseja remover?" class=""></datasource>
+<datasource filter="{{'/Pessoa/' + idPessoa}}" name="ExperienciaL" entity="api/rest/itv/ExperienciaLinkedIn" keys="id" rows-per-page="100" delete-message="Deseja remover?" class=""></datasource>
+<datasource filter="{{'/Pessoa/' + idPessoa}}" name="InteresseL" entity="api/rest/itv/InteresseLinkedIn" keys="id" rows-per-page="100" delete-message="Deseja remover?" class=""></datasource>
+<datasource filter="{{'/Pessoa/' + idPessoa}}" name="FormacaoL" entity="api/rest/itv/FormacaoAcademicaLinkedIn" keys="id" rows-per-page="100" delete-message="Deseja remover?" class=""></datasource>
 <div class="ctn-tab">  
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active"><a data-target="#tab1" role="tab" data-toggle="tab">Dados Pessoais</a></li>
@@ -62,6 +73,31 @@
         </tr> 
       </tbody> 
     </table> 
+    <table class="table table-hover"> 
+          <thead class="thead-inverse"> 
+            <tr> 
+              <th>Endereços</th> 
+              <th></th> 
+            </tr> 
+          </thead> 
+          <tbody class="table-content" ng-repeat="rowData in Endereco.data">
+            <tr> 
+              <td><b>Logradouro:</b> {{rowData.logradouro}} </td> 
+            </tr> 
+            <tr> 
+              <td><b>Bairro:</b> {{rowData.bairro}} </td> 
+            </tr> 
+            <tr> 
+              <td><b>CEP:</b> {{rowData.cep}} </td> 
+            </tr> 
+            <tr> 
+              <td><b>Cidade:</b> {{rowData.cidade}} </td> 
+            </tr>
+            <tr> 
+              <td><b>UF:</b> {{rowData.uf}} </td> 
+            </tr>
+          </tbody> 
+        </table> 
     </div></div>
     <div role="tabpanel" class="tab-pane" id="tab2"><div data-container="true">
         
@@ -72,7 +108,10 @@
               <th></th> 
             </tr> 
           </thead> 
-          <tbody> 
+          <tbody>
+            <tr> 
+              <td><b>Rating Pessoal:</b> {{Pessoa.active.dadoPessoalSerasa.ratingPessoal}} </td> 
+            </tr> 
             <tr> 
               <td class=""><b>CPF:</b> {{Pessoa.active.dadoPessoalSerasa.cpf}} </td> 
             </tr> 
@@ -97,12 +136,350 @@
             <tr> 
               <td><b>Signo:</b> {{Pessoa.active.dadoPessoalSerasa.signo}} </td> 
             </tr>
+          </tbody> 
+        </table> 
+        <table class="table table-hover"> 
+          <thead class="thead-inverse"> 
             <tr> 
-              <td><b>Rating Pessoal:</b> {{Pessoa.active.dadoPessoalSerasa.ratingPessoal}} </td> 
+              <th>Anotação negativa</th> 
+              <th></th> 
+            </tr> 
+          </thead> 
+          <tbody>
+            <tr> 
+              <td><b>Pendências comerciais:</b> {{Pessoa.active.dadoPessoalSerasa.anotacaoNegativa.pendenciaComercial}} </td> 
+            </tr> 
+            <tr> 
+              <td><b>Pendências bancárias:</b> {{Pessoa.active.dadoPessoalSerasa.anotacaoNegativa.pendenciaBancaria}} </td> 
+            </tr> 
+            <tr> 
+              <td><b>Cheques sem fundo:</b> {{Pessoa.active.dadoPessoalSerasa.anotacaoNegativa.chequeSemFundo}} </td> 
+            </tr> 
+            <tr> 
+              <td><b>Protestos:</b> {{Pessoa.active.dadoPessoalSerasa.anotacaoNegativa.protesto}} </td> 
+            </tr>
+            <tr> 
+              <td><b>Ações judiciais:</b> {{Pessoa.active.dadoPessoalSerasa.anotacaoNegativa.acaoJudicial}} </td> 
+            </tr>
+            <tr> 
+              <td><b>Participações em falências:</b> {{Pessoa.active.dadoPessoalSerasa.anotacaoNegativa.participacaoFalencia}} </td> 
+            </tr>
+            <tr> 
+              <td><b>Dívidas vencidas:</b> {{Pessoa.active.dadoPessoalSerasa.anotacaoNegativa.dividaVencida}} </td> 
+            </tr>
+            <tr> 
+              <td><b>Falências:</b> {{Pessoa.active.dadoPessoalSerasa.anotacaoNegativa.falencia}} </td> 
+            </tr>
+            <tr> 
+              <td><b>Pendencias internas:</b> {{Pessoa.active.dadoPessoalSerasa.anotacaoNegativa.pendenciaInterna}} </td> 
+            </tr>
+          </tbody> 
+        </table>
+        <table class="table table-hover"> 
+          <thead class="thead-inverse"> 
+            <tr class="table-content"> 
+              <th>Endereços</th> 
+              <th></th> 
+            </tr> 
+          </thead> 
+          <tbody ng-repeat="rowData in EnderecoS.data">
+            <tr> 
+              <td><b>Logradouro:</b> {{rowData.logradouro}} </td> 
+            </tr> 
+            <tr> 
+              <td><b>Bairro:</b> {{rowData.bairro}} </td> 
+            </tr> 
+            <tr> 
+              <td><b>CEP:</b> {{rowData.cep}} </td> 
+            </tr> 
+            <tr> 
+              <td><b>Cidade:</b> {{rowData.cidade}} </td> 
+            </tr>
+            <tr> 
+              <td><b>UF:</b> {{rowData.uf}} </td> 
+            </tr>
+            <tr> 
+              <td><b>Número:</b> {{rowData.numero}} </td> 
+            </tr>
+            <tr> 
+              <td><b>Tipo:</b> {{rowData.tipoEndereco}} </td> 
             </tr>
           </tbody> 
         </table> 
+        <table class="table table-hover"> 
+          <thead class="thead-inverse"> 
+            <tr class="table-content"> 
+              <th>Telefones</th> 
+              <th></th> 
+            </tr> 
+          </thead> 
+          <tbody ng-repeat="rowData in TelefoneS.data">
+            <tr> 
+              <td><b>DDI:</b> {{rowData.ddi}} </td> 
+            </tr> 
+            <tr> 
+              <td><b>DDD:</b> {{rowData.ddd}} </td> 
+            </tr> 
+            <tr> 
+              <td><b>Número:</b> {{rowData.numero}} </td> 
+            </tr>
+          </tbody> 
+        </table> 
+        <table class="table table-hover"> 
+          <thead class="thead-inverse"> 
+            <tr class="table-content"> 
+              <th>Participacao societária</th> 
+              <th></th> 
+            </tr> 
+          </thead> 
+          <tbody ng-repeat="rowData in Participacao.data">
+            <tr> 
+              <td><b>Empresa:</b> {{rowData.nomeEmpresa}} </td> 
+            </tr> 
+            <tr> 
+              <td><b>CNPJ:</b> {{rowData.cnpj}} </td> 
+            </tr> 
+            <tr> 
+              <td><b>Participação:</b> {{rowData.participacaoEmpresa}} </td> 
+            </tr>
+            <tr> 
+              <td><b>Início:</b> {{rowData.dtInicio | date: 'dd/MM/yyyy'}} </td> 
+            </tr>
+            <tr> 
+              <td><b>Atualização:</b> {{rowData.dtAtualizacao | date: 'dd/MM/yyyy'}} </td> 
+            </tr>
+            <tr> 
+              <td><b>Razão social:</b> {{rowData.classifRiscoCreditoEmpresa.razaoSocial}} </td> 
+            </tr>
+            <tr> 
+              <td><b>Serasa Score:</b> {{rowData.classifRiscoCreditoEmpresa.serasaScoreEmpresa}} </td> 
+            </tr>
+          </tbody> 
+        </table> 
+    </div></div>
+    <div role="tabpanel" class="tab-pane" id="tab3"><div data-container="true">
         
+        <table class="table table-hover"> 
+          <thead class="thead-inverse"> 
+            <tr> 
+              <th>Pessoa selecionada: {{Pessoa.active.nome}}</th> 
+              <th></th> 
+            </tr> 
+          </thead> 
+          <tbody>
+            <tr> 
+              <td><b>Link:</b><a ng-href={{Pessoa.active.dadoPessoalFacebook.urlId}}> {{Pessoa.active.dadoPessoalFacebook.urlId}} </a> </td> 
+            </tr> 
+            <tr> 
+              <td class=""><b>Nome Facebook:</b> {{Pessoa.active.dadoPessoalFacebook.nome}} </td> 
+            </tr> 
+            <tr> 
+              <td><b>Data nascimento:</b> {{Pessoa.active.dadoPessoalFacebook.dtNascimento |  date:'dd/MM/yyyy'}} </td> 
+            </tr>
+            <tr> 
+              <td><b>Cidade atual:</b> {{Pessoa.active.dadoPessoalFacebook.cidadeAtual}} </td> 
+            </tr>
+            <tr> 
+              <td><b>Cidade natal:</b> {{Pessoa.active.dadoPessoalFacebook.cidadeNatal}} </td> 
+            </tr>
+            <tr> 
+              <td><b>Relacionamento:</b> {{Pessoa.active.dadoPessoalFacebook.relacionamento}} </td> 
+            </tr>
+            <tr> 
+              <td><b>Relacionamento com:</b> {{Pessoa.active.dadoPessoalFacebook.casadoCom}} </td> 
+            </tr>
+            <tr> 
+              <td><b>Sexo:</b> {{Pessoa.active.dadoPessoalFacebook.genero}} </td> 
+            </tr>
+            <tr> 
+              <td><b>Quantidade de amigos:</b> {{Pessoa.active.dadoPessoalFacebook.quantAmigo}} </td> 
+            </tr>
+            <tr> 
+              <td><b>Idioma:</b> {{Pessoa.active.dadoPessoalFacebook.idioma}} </td> 
+            </tr>
+          </tbody> 
+        </table> 
+        <table class="table table-hover"> 
+          <thead class="thead-inverse"> 
+            <tr class="table-content"> 
+              <th>Trabalho</th> 
+              <th></th> 
+            </tr> 
+          </thead> 
+          <tbody ng-repeat="rowData in TrabalhoF.data">
+            <tr> 
+              <td><b>Local:</b> {{rowData.local}} </td> 
+            </tr> 
+            <tr> 
+              <td><b>Cargo:</b> {{rowData.cargo}} </td> 
+            </tr> 
+            <tr> 
+              <td><b>Data:</b> {{rowData.periodo | date: 'dd/MM/yyyy'}} </td> 
+            </tr>
+            <tr> 
+              <td><b>Cidade:</b> {{rowData.cidade}} </td> 
+            </tr>
+          </tbody> 
+        </table>
+        <table class="table table-hover"> 
+          <thead class="thead-inverse"> 
+            <tr class="table-content"> 
+              <th>Educação</th> 
+              <th></th> 
+            </tr> 
+          </thead> 
+          <tbody ng-repeat="rowData in EducacaoF.data">
+            <tr> 
+              <td><b>Formação:</b> {{rowData.formacao}} </td> 
+            </tr> 
+            <tr> 
+              <td><b>Ensino médio:</b> {{rowData.ensinoMedio}} </td> 
+            </tr> 
+            <tr> 
+              <td><b>Ano ensino médio:</b> {{rowData.anoEnsinoMedio | date: 'yyyy'}} </td> 
+            </tr>
+            <tr> 
+              <td><b>Ensino superior:</b> {{rowData.ensinoSuperior}} </td> 
+            </tr>
+            <tr> 
+              <td><b>Ano ensino superior:</b> {{rowData.anoEnsinoSuperior | date: 'yyyy'}} </td> 
+            </tr>
+            <tr> 
+              <td><b>Curso superior:</b> {{rowData.cursoSuperior}} </td> 
+            </tr>
+          </tbody> 
+        </table> 
+        <table class="table table-hover"> 
+          <thead class="thead-inverse"> 
+            <tr class="table-content"> 
+              <th>Família</th> 
+              <th></th> 
+            </tr> 
+          </thead> 
+          <tbody ng-repeat="rowData in FamiliaF.data">
+            <tr> 
+              <td><b>Link facebook:</b> <a ng-href={{rowData.url}}> {{rowData.url}} </a></td> 
+            </tr> 
+            <tr> 
+              <td><b>Nome:</b> {{rowData.nome}} </td> 
+            </tr> 
+            <tr> 
+              <td><b>Parentesco:</b> {{rowData.parentesco}} </td> 
+            </tr>
+          </tbody> 
+        </table> 
+        <table class="table table-hover"> 
+          <thead class="thead-inverse"> 
+            <tr class="table-content"> 
+              <th>Acontecimentos</th> 
+              <th></th> 
+            </tr> 
+          </thead> 
+          <tbody ng-repeat="rowData in AcontecimentoF.data">
+            <tr> 
+              <td><b>Ano:</b> {{rowData.ano | date: 'dd/MM/yyyy'}} </td> 
+            </tr> 
+            <tr> 
+              <td><b>Descrição:</b> {{rowData.descricao}} </td> 
+            </tr> 
+          </tbody> 
+        </table> 
+    </div></div>
+    <div role="tabpanel" class="tab-pane" id="tab4"><div data-container="true">
+        <table class="table table-hover"> 
+          <thead class="thead-inverse"> 
+            <tr> 
+              <th>Pessoa selecionada: {{Pessoa.active.nome}}</th> 
+              <th></th> 
+            </tr> 
+          </thead> 
+          <tbody>
+            <tr> 
+              <td><b>Link:</b><a ng-href={{Pessoa.active.dadoPessoalLinkedIn.url}}> {{Pessoa.active.dadoPessoalLinkedIn.url}} </a> </td> 
+            </tr> 
+            <tr> 
+              <td class=""><b>Nome LinkedIn:</b> {{Pessoa.active.dadoPessoalLinkedIn.nome}} </td> 
+            </tr>
+            <tr> 
+              <td class=""><b>Aniversário:</b> {{Pessoa.active.dadoPessoalLinkedIn.aniversario}} </td> 
+            </tr> 
+          </tbody> 
+        </table> 
+        <table class="table table-hover"> 
+          <thead class="thead-inverse"> 
+            <tr class="table-content"> 
+              <th>Experiências</th> 
+              <th></th> 
+            </tr> 
+          </thead> 
+          <tbody ng-repeat="rowData in ExperienciaL.data">
+            <tr> 
+              <td><b>Local:</b> {{rowData.local}} </td> 
+            </tr> 
+            <tr> 
+              <td><b>Cargo:</b> {{rowData.cargo}} </td> 
+            </tr>
+            <tr> 
+              <td><b>Data:</b> {{rowData.periodo | date: 'dd/MM/yyyy'}} </td> 
+            </tr>
+            <tr> 
+              <td><b>Cidade:</b> {{rowData.cidade}} </td> 
+            </tr>
+            <tr> 
+              <td><b>Descrição:</b> {{rowData.descricao}} </td> 
+            </tr> 
+          </tbody> 
+        </table> 
+        <table class="table table-hover"> 
+          <thead class="thead-inverse"> 
+            <tr class="table-content"> 
+              <th>Formação</th> 
+              <th></th> 
+            </tr> 
+          </thead> 
+          <tbody ng-repeat="rowData in FormacaoL.data">
+            <tr> 
+              <td><b>Ensino superior:</b> {{rowData.ensinoSuperior} </td> 
+            </tr> 
+            <tr> 
+              <td><b>Cargo:</b> {{rowData.cargo}} </td> 
+            </tr>
+            <tr> 
+              <td><b>Curso:</b> {{rowData.curso}} </td> 
+            </tr>
+            <tr> 
+              <td><b>Formação:</b> {{rowData.formacao}} </td> 
+            </tr>
+            <tr> 
+              <td><b>Ano:</b> {{rowData.ano  | date: 'yyyy'}} </td> 
+            </tr> 
+          </tbody> 
+        </table> 
+        <table class="table table-hover"> 
+          <thead class="thead-inverse"> 
+            <tr class="table-content"> 
+              <th>Interesses</th> 
+              <th></th> 
+            </tr> 
+          </thead> 
+          <tbody ng-repeat="rowData in InteresseL.data">
+            <tr> 
+              <td><b>Nome:</b> {{rowData.nomeInfluencer} </td> 
+            </tr> 
+            <tr> 
+              <td><b>Empresa:</b> {{rowData.nomeEmpresa}} </td> 
+            </tr>
+            <tr> 
+              <td><b>Grupo:</b> {{rowData.nomeGrupo}} </td> 
+            </tr>
+            <tr> 
+              <td><b>Instituição de ensino:</b> {{rowData.nomeInstituicaoDeEnsino}} </td> 
+            </tr>
+            <tr> 
+              <td><b>Ano:</b> {{rowData.ano  | date: 'yyyy'}} </td> 
+            </tr> 
+          </tbody> 
+        </table> 
     </div></div>
   </div>
 </div>
