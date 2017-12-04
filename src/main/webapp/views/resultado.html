@@ -1,5 +1,5 @@
 <h3>Resultado</h3>
-<datasource filter="{{'/listByNome/' + nome}}" name="Pessoa" entity="api/rest/itv/Pessoa" keys="id" rows-per-page="100" delete-message="Deseja remover?" class=""></datasource>
+<datasource on-after-fill="app.userEvents.carregaGraficos()" filter="{{'/listByNome/' + nome}}" name="Pessoa" entity="api/rest/itv/Pessoa" keys="id" rows-per-page="100" delete-message="Deseja remover?" class=""></datasource>
 Nome pesquisado: {{nome}}
 <div class="component-holder" data-component="crn-grid" id="crn-grid-Pessoa">
   <div crn-datasource="Pessoa" class="" ng-hide="Pessoa.editing || Pessoa.inserting">
@@ -53,3 +53,11 @@ Nome pesquisado: {{nome}}
 <div class="table-footer-controls">
   <button class="btn btn-default btn-sm" type="submit" ng-click="voltar()"><i class="glyphicon glyphicon-circle-arrow-left"></i></button>
 </div>
+<b>Comparação</b>
+<br>
+<b>Ano nascimento</b>
+<canvas style="width: 100px; height: 30px;" id="c_pie" class="chart chart-pie" chart-data="datasNascQtde" chart-labels="datasNasc"></canvas>
+<b>Rating Serasa</b>
+<canvas style="width: 100px; height: 30px;" id="c_pie" class="chart chart-pie" chart-data="ratingsQtde" chart-labels="ratings"></canvas>
+<b>Quantidade de amigos facebook</b>
+<canvas style="width: 100px; height: 30px;" id="c_pie" class="chart chart-pie" chart-data="amigosQtde" chart-labels="amigos"></canvas>

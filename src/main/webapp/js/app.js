@@ -190,39 +190,89 @@ var app = (function() {
 
 app.userEvents = {};
 
+app.userEvents.carregaGraficos = function(event) {
+	event.$scope.$parent.$parent.datasNasc = [];
+	event.$scope.$parent.$parent.datasNascQtde = [];
+	event.$scope.$parent.$parent.ratings = [];
+	event.$scope.$parent.$parent.ratingsQtde = [];
+	event.$scope.$parent.$parent.amigos = [];
+	event.$scope.$parent.$parent.amigosQtde = [];
+	for (var i = 0; i < Pessoa.data.length; i++)
+	{
+	  if (Pessoa.data[i].dtNascimento !== null && Pessoa.data[i].dtNascimento !== undefined)
+	  {
+	    var ano = Pessoa.data[i].dtNascimento.toString().substring(0,4);
+	    var present = false;
+	    var indicePresent = false;
+	    for (var j = 0; j < event.$scope.$parent.$parent.datasNasc.length; j++)
+	    {
+	      if (event.$scope.$parent.$parent.datasNasc[j] === ano)
+	      {
+	        present = true;
+	        indicePresent = j;
+	      }
+	    }
+	    if (!present)
+	    {
+	      event.$scope.$parent.$parent.datasNasc.push(ano);  
+	      event.$scope.$parent.$parent.datasNascQtde.push(1);
+	    }
+	    else
+	    {
+	      event.$scope.$parent.$parent.datasNascQtde[indicePresent]++;
+	    }
+	  }
+	  if (Pessoa.data[i].dadoPessoalSerasa.ratingPessoal !== null && Pessoa.data[i].dadoPessoalSerasa.ratingPessoal !== undefined)
+	  {
+	    var rating = Pessoa.data[i].dadoPessoalSerasa.ratingPessoal;
+	    var present = false;
+	    var indicePresent = false;
+	    for (var j = 0; j < event.$scope.$parent.$parent.ratings.length; j++)
+	    {
+	      if (event.$scope.$parent.$parent.ratings[j] === rating)
+	      {
+	        present = true;
+	        indicePresent = j;
+	      }
+	    }
+	    if (!present)
+	    {
+	      event.$scope.$parent.$parent.ratings.push(rating);  
+	      event.$scope.$parent.$parent.ratingsQtde.push(1);
+	    }
+	    else
+	    {
+	      event.$scope.$parent.$parent.ratingsQtde[indicePresent]++;
+	    }
+	  }
+	  if (Pessoa.data[i].dadoPessoalFacebook.quantAmigo !== null && Pessoa.data[i].dadoPessoalFacebook.quantAmigo !== undefined)
+	  {
+	    var qtde = Pessoa.data[i].dadoPessoalFacebook.quantAmigo;
+	    var present = false;
+	    var indicePresent = false;
+	    for (var j = 0; j < event.$scope.$parent.$parent.amigos.length; j++)
+	    {
+	      if (event.$scope.$parent.$parent.amigos[j] === qtde)
+	      {
+	        present = true;
+	        indicePresent = j;
+	      }
+	    }
+	    if (!present)
+	    {
+	      event.$scope.$parent.$parent.amigos.push(qtde);  
+	      event.$scope.$parent.$parent.amigosQtde.push(1);
+	    }
+	    else
+	    {
+	      event.$scope.$parent.$parent.amigosQtde[indicePresent]++;
+	    }
+	  }
+	}
+}
+
 //Configuration
 app.config = {};
-app.config.datasourceApiVersion = 2;
-
-app.registerEventsCronapi = function($scope, $translate){
-  for(var x in app.userEvents)
-    $scope[x]= app.userEvents[x].bind($scope);
-
-  $scope.vars = {};
-
-  try {
-    if (cronapi) {
-      $scope['cronapi'] = cronapi;
-      $scope['cronapi'].$scope =  $scope;
-      $scope.safeApply = safeApply;
-      if ($translate) {
-        $scope['cronapi'].$translate =  $translate;
-     }
-    }
-  }
-  catch (e)  {
-    console.info('Not loaded cronapi functions');
-    console.info(e);
-  }
-  try {
-    if (blockly)
-      $scope['blockly'] = blockly;
-  }
-  catch (e)  {
-    console.info('Not loaded blockly functions');
-    console.info(e);
-  }
-};
 
 window.safeApply = function(fn) {
   var phase = this.$root.$$phase;

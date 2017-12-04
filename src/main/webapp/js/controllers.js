@@ -3,8 +3,6 @@
     
     app.controller('HomeController', ['$scope', '$http', '$rootScope', '$state', '$translate', 'Notification', function ($scope, $http, $rootScope, $state, $translate, Notification) {
       
-      app.registerEventsCronapi($scope, $translate);
-        
       $rootScope.http = $http;
       $rootScope.Notification = Notification;
 

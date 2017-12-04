@@ -117,7 +117,7 @@ public class AcontecimentoFacebookBusiness {
   public Page<AcontecimentoFacebook> findAcontecimentoFacebooksByPessoaId(java.lang.Integer id, Pageable pageable) {
     // begin-user-code
     // end-user-code  
-    Page<AcontecimentoFacebook> result = repository.findAcontecimentoFacebooksByDadoPessoalFacebook(id, pageable);
+    Page<AcontecimentoFacebook> result = repository.findAcontecimentoFacebooksByPessoaId(id, pageable);
     // begin-user-code  
     // end-user-code        
     return result;
